@@ -1,0 +1,29 @@
+---
+title: "Mission: Mars"
+company: The Escape Game
+date: 30 Apr 2023 8:40
+city: Minneapolis, MN
+country: USA
+long: -93.24013254232992
+lat: 44.85548059168515
+
+about: 
+  template: broadside
+  links: 
+    - icon: globe2
+      href: https://theescapegame.com/minneapolis/escape-rooms/mission-mars/
+
+players:
+  - Hanno
+  - Fatima
+  - Unknown 1
+  - Unknown 2
+  
+cost: 86.19
+currency: USD
+paid-by: Fatima
+---
+
+Fatima's impressions
+
+-   not many locks, but quite a few number pads

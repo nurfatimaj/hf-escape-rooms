@@ -1,0 +1,28 @@
+---
+title: The Heist
+company: The Escape Game
+date: 20 May 2023 11:20
+city: Minneapolis, MN
+country: USA
+long: -93.24013254232992
+lat: 44.85548059168515
+
+about: 
+  template: broadside
+  links: 
+    - icon: globe2
+      href: https://theescapegame.com/escape-rooms/the-heist/
+
+players:
+  - Hanno
+  - Fatima
+  
+cost: 68.94
+currency: USD
+paid-by: Fatima
+---
+
+Fatima's impressions:
+
+-   quite challenging
+-   non-standard puzzles that require some physical action

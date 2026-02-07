@@ -1,0 +1,32 @@
+---
+title: Prison Break
+company: The Escape Game
+date: 20 May 2023 13:00
+city: Minneapolis, MN
+country: USA
+long: -93.24013254232992
+lat: 44.85548059168515
+
+tags: 
+  - cooperation
+
+about: 
+  template: broadside
+  links: 
+    - icon: globe2
+      href: https://theescapegame.com/escape-rooms/prison-break/
+
+players:
+  - Hanno
+  - Fatima
+  
+cost: 51.71
+currency: USD
+paid-by: Hanno
+---
+
+Fatima's impressions:
+
+-   needs cooperation
+-   interesting non-lock puzzles
+-   requires some crawling
