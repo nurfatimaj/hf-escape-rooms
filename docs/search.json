@@ -1,10 +1,17 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "rooms/the-escape-game-heist.html",
+    "href": "rooms/the-escape-game-heist.html",
+    "title": "The Heist",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "Fatima’s impressions:\n\nquite challenging\nnon-standard puzzles that require some physical action"
+  },
+  {
+    "objectID": "rooms/the-escape-game-prison-break.html",
+    "href": "rooms/the-escape-game-prison-break.html",
+    "title": "Prison Break",
+    "section": "",
+    "text": "Fatima’s impressions:\n\nneeds cooperation\ninteresting non-lock puzzles\nrequires some crawling"
   },
   {
     "objectID": "index.html",
@@ -19,19 +26,5 @@
     "title": "Mission: Mars",
     "section": "",
     "text": "Fatima’s impressions\n\nnot many locks, but quite a few number pads"
-  },
-  {
-    "objectID": "rooms/the-escape-game-heist.html",
-    "href": "rooms/the-escape-game-heist.html",
-    "title": "The Heist",
-    "section": "",
-    "text": "Fatima’s impressions:\n\nquite challenging\nnon-standard puzzles that require some physical action"
-  },
-  {
-    "objectID": "rooms/the-escape-game-prison-break.html",
-    "href": "rooms/the-escape-game-prison-break.html",
-    "title": "Prison Break",
-    "section": "",
-    "text": "Fatima’s impressions:\n\nneeds cooperation\ninteresting non-lock puzzles\nrequires some crawling"
   }
 ]
