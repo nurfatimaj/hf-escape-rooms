@@ -5,6 +5,9 @@ project:
 website:
   title: "Hanno and Fatima's Escape Rooms"
 
+execute: 
+  freeze: auto
+
 format:
   html:
     theme:

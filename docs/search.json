@@ -7,18 +7,32 @@
     "text": "Fatima’s impressions:\n\nquite challenging\nnon-standard puzzles that require some physical action"
   },
   {
-    "objectID": "rooms/the-escape-game-prison-break.html",
-    "href": "rooms/the-escape-game-prison-break.html",
-    "title": "Prison Break",
+    "objectID": "rooms/getaway-room-smugglers.html",
+    "href": "rooms/getaway-room-smugglers.html",
+    "title": "Smugglers",
     "section": "",
-    "text": "Fatima’s impressions:\n\nneeds cooperation\ninteresting non-lock puzzles\nrequires some crawling"
+    "text": "Fatima’s impressions:\n\nauditory puzzle\nTampere theme"
+  },
+  {
+    "objectID": "rooms/getaway-room-finlayson-lights.html",
+    "href": "rooms/getaway-room-finlayson-lights.html",
+    "title": "Finlaysonin Sähkövalo",
+    "section": "",
+    "text": "Fatima’s impressions:\n\nvery interesting puzzles\nsome require a lot of physical activity\nreally needs 4 people\nTampere theme"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Hanno and Fatima's Escape Rooms",
     "section": "",
-    "text": "viewof year_filter = Inputs.form({\n  beg: Inputs.number([2023, Infinity], {step: 1, label: 'From', placeholder: new Date().getFullYear(), value: 2023}), \n  end: Inputs.number([2023, Infinity], {step: 1, label: 'to', placeholder: new Date().getFullYear(), value: new Date().getFullYear()}), \n}, \n{\n  template: (inputs) =&gt; htl.html`&lt;div class=\"row justify-content-between no-gutters\"&gt;\n    &lt;div class=\"col\"&gt;${inputs.beg}&lt;/div&gt;\n    &lt;div class=\"col\"&gt;${inputs.end}&lt;/div&gt;\n    &lt;/div&gt;`\n});\n\n\n\n\n\n\n\n\n\nfiltered = transpose(data).filter(function(d) {\n  return year_filter.beg &lt;= new Date(d.date).getFullYear() && new Date(d.date).getFullYear() &lt;= year_filter.end; \n})\n\nwidth = '100%'; \nheight = '500px'; \n\nroomMap = {\n  // You'll often see Leaflet examples initializing a map like L.map('map'),\n  // which tells the library to look for a div with the id 'map' on the page.\n  // In Observable, we instead create a div from scratch in this cell, so it's\n  // completely self-contained.\n  let container = DOM.element('div', { style: `width:${width};height:${height}` });\n  \n  // Note that I'm yielding the container pretty early here: this allows the\n  // div to be placed on the page. This is important, because Leaflet uses\n  // the div's .offsetWidth and .offsetHeight to size the map. If I were\n  // to only return the container at the end of this method, Leaflet might\n  // get the wrong idea about the map's size.\n  yield container;\n  \n  // Now we create a map object and add a layer to it.\n  let map = L.map(container);\n  let osmLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png', {\n      attribution: '&copy; &lt;a href=\"http://osm.org/copyright\"&gt;OpenStreetMap&lt;/a&gt; contributors'\n  }).addTo(map);\n  \n  var rooms = L.featureGroup(); \n  for (var i = 0; i &lt; filtered.length; i++) {\n    let room = L.marker([filtered[i].lat, filtered[i].long]); \n    room.bindPopup(filtered[i].linked_name); \n    rooms.addLayer(room);\n  }\n  \n  map.addLayer(rooms); \n  map.fitBounds(rooms.getBounds(), {maxZoom: 7});\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Room\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nRoom\n\n\n\nCity\n\n\n\nCountry\n\n\n\nPlayers\n\n\n\n\n\n\n\n\nApr 30, 2023\n\n\nMission: Mars\n\n\nMinneapolis, MN\n\n\nUSA\n\n\nHanno, Fatima, Unknown 1, Unknown 2\n\n\n\n\n\n\nMay 20, 2023\n\n\nPrison Break\n\n\nMinneapolis, MN\n\n\nUSA\n\n\nHanno, Fatima\n\n\n\n\n\n\nMay 20, 2023\n\n\nThe Heist\n\n\nMinneapolis, MN\n\n\nUSA\n\n\nHanno, Fatima\n\n\n\n\n\n\nNo matching items"
+    "text": "viewof year_filter = Inputs.form({\n  beg: Inputs.number([2023, Infinity], {step: 1, label: 'From', placeholder: new Date().getFullYear(), value: 2023}), \n  end: Inputs.number([2023, Infinity], {step: 1, label: 'to', placeholder: new Date().getFullYear(), value: new Date().getFullYear()}), \n}, \n{\n  template: (inputs) =&gt; htl.html`&lt;div class=\"row justify-content-between no-gutters\"&gt;\n    &lt;div class=\"col\"&gt;${inputs.beg}&lt;/div&gt;\n    &lt;div class=\"col\"&gt;${inputs.end}&lt;/div&gt;\n    &lt;/div&gt;`\n});\n\n\n\n\n\n\n\n\n\nfiltered = transpose(data).filter(function(d) {\n  return year_filter.beg &lt;= new Date(d.date).getFullYear() && new Date(d.date).getFullYear() &lt;= year_filter.end; \n})\n\nwidth = '100%'; \nheight = '500px'; \n\nroomMap = {\n  // You'll often see Leaflet examples initializing a map like L.map('map'),\n  // which tells the library to look for a div with the id 'map' on the page.\n  // In Observable, we instead create a div from scratch in this cell, so it's\n  // completely self-contained.\n  let container = DOM.element('div', { style: `width:${width};height:${height}` });\n  \n  // Note that I'm yielding the container pretty early here: this allows the\n  // div to be placed on the page. This is important, because Leaflet uses\n  // the div's .offsetWidth and .offsetHeight to size the map. If I were\n  // to only return the container at the end of this method, Leaflet might\n  // get the wrong idea about the map's size.\n  yield container;\n  \n  // Now we create a map object and add a layer to it.\n  let map = L.map(container);\n  let osmLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png', {\n      attribution: '&copy; &lt;a href=\"http://osm.org/copyright\"&gt;OpenStreetMap&lt;/a&gt; contributors'\n  }).addTo(map);\n  \n  var rooms = L.featureGroup(); \n  for (var i = 0; i &lt; filtered.length; i++) {\n    let room = L.marker([filtered[i].lat, filtered[i].long]); \n    room.bindPopup(filtered[i].linked_name); \n    rooms.addLayer(room);\n  }\n  \n  map.addLayer(rooms); \n  map.fitBounds(rooms.getBounds(), {maxZoom: 7});\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Room\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nRoom\n\n\n\nCity\n\n\n\nCountry\n\n\n\nPlayers\n\n\n\n\n\n\n\n\nMar 10, 2024\n\n\nFinlaysonin Sähkövalo\n\n\nTampere\n\n\nFinland\n\n\nHanno, Fatima\n\n\n\n\n\n\nApr 30, 2023\n\n\nMission: Mars\n\n\nMinneapolis, MN\n\n\nUSA\n\n\nHanno, Fatima, Unknown 1, Unknown 2\n\n\n\n\n\n\nMay 20, 2023\n\n\nPrison Break\n\n\nMinneapolis, MN\n\n\nUSA\n\n\nHanno, Fatima\n\n\n\n\n\n\nMay 23, 2024\n\n\nSmugglers\n\n\nTampere\n\n\nFinland\n\n\nHanno, Fatima\n\n\n\n\n\n\nMay 20, 2023\n\n\nThe Heist\n\n\nMinneapolis, MN\n\n\nUSA\n\n\nHanno, Fatima\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "rooms/the-escape-game-prison-break.html",
+    "href": "rooms/the-escape-game-prison-break.html",
+    "title": "Prison Break",
+    "section": "",
+    "text": "Fatima’s impressions:\n\nneeds cooperation\ninteresting non-lock puzzles\nrequires some crawling"
   },
   {
     "objectID": "rooms/the-escape-game-mission-mars.html",

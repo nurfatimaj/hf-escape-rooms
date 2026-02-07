@@ -1,25 +1,25 @@
 ---
-title: The Heist
-company: The Escape Game
-date: 20 May 2023 11:20
-city: Minneapolis, MN
-country: USA
-long: -93.24013254232992
-lat: 44.85548059168515
+title: Smugglers
+company: Getaway Room Escape
+date: 23 May 2024 19:30
+city: Tampere
+country: Finland
+long: 23.775841373010213
+lat: 61.50008288065604
 
 about: 
   template: broadside
   links: 
     - icon: globe2
-      href: https://theescapegame.com/escape-rooms/the-heist/
+      href: https://www.getaway.fi/en/tampere-en/escape-rooms/vellamonkatu/#the-smugglers
 
 players:
   - Hanno
   - Fatima
   
-cost: 68.94
-currency: USD
-paid-by: Fatima
+cost: 80
+currency: EUR
+paid-by: Hanno
 
 execute: 
   echo: false
@@ -29,8 +29,8 @@ execute:
 
 Fatima's impressions:
 
--   quite challenging
--   non-standard puzzles that require some physical action
+-   auditory puzzle
+-   Tampere theme
 
 ```{r}
 library(leaflet)

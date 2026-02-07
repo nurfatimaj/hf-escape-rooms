@@ -22,8 +22,23 @@ players:
 cost: 86.19
 currency: USD
 paid-by: Fatima
+
+execute: 
+  echo: false
+  warning: false
+  error: false
 ---
 
 Fatima's impressions
 
 -   not many locks, but quite a few number pads
+
+```{r}
+library(leaflet)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addProviderTiles('Esri.WorldGrayCanvas') %>% 
+  addMarkers(lng = rmarkdown::metadata$long, 
+             lat = rmarkdown::metadata$lat)
+```

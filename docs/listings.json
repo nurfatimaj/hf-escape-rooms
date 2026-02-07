@@ -2,8 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
+      "/rooms/getaway-room-finlayson-lights.html",
       "/rooms/the-escape-game-mission-mars.html",
       "/rooms/the-escape-game-prison-break.html",
+      "/rooms/getaway-room-smugglers.html",
       "/rooms/the-escape-game-heist.html"
     ]
   }
