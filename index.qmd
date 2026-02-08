@@ -1,4 +1,8 @@
 ---
+format: 
+  dashboard:
+    orientation: columns
+
 listing: 
   id: room-table
   contents: rooms
@@ -27,6 +31,10 @@ execute:
   error: false
 ---
 
+# Overview
+
+##  {.sidebar}
+
 ```{r}
 #| label: room-table
 #| include: false
@@ -39,13 +47,29 @@ room_list <- list.files('rooms', '.qmd',
 names(room_list) <- basename(str_remove_all(room_list, '.qmd'))
 
 room_yaml <- map(room_list, rmarkdown::yaml_front_matter)
-room_yaml <- map(room_yaml, ~.x[c('title', 'date', 'long', 'lat', 'company')])
+room_yaml <- map(room_yaml, ~.x[c('title', 'date', 'long', 'lat', 'company', 'country', 'completion-time', 'rating')])
+room_yaml <- lapply(room_yaml, function(room) {
+  lapply(room, function(yaml) {
+    if (is.null(yaml)) {
+      return(NA)
+    } else {
+      return(yaml)
+    }
+  })
+})
 
 room_tbl <- map(room_yaml, as_tibble)
 room_tbl <- bind_rows(room_tbl, .id = 'room')
 room_tbl <- room_tbl %>% mutate(path = room_list[room])
 room_tbl <- room_tbl %>% mutate(dt = parse_date_time(date, 'dmy HM'))
-room_tbl <- room_tbl %>% mutate(date = format(dt, '%d %b %Y'))
+room_tbl <- room_tbl %>% mutate(date = format(dt, '%d %b %Y'), 
+                                year = year(dt), 
+                                time_min = str_extract(`completion-time`, '[[:digit:]]+'), 
+                                time_min = as.numeric(time_min), 
+                                time_min = case_when(
+                                  str_detect(`completion-time`, 'min') ~ time_min, 
+                                  str_detect(`completion-time`, 'h|hour') ~ time_min * 60, 
+                                  .default = NA))
 
 room_tbl <- room_tbl %>% 
   mutate(linked_name = paste0("<b><a href='", path, 
@@ -68,12 +92,14 @@ viewof year_filter = Inputs.form({
     <div class="col">${inputs.end}</div>
     </div>`
 }); 
+
+viewof by_variable = Inputs.select(new Map([['Country', 'country'], ['Rating', 'rating'], ['Year', 'year'], ['Company', 'company'], ['Completion time', 'time_min']]), {value: 'country', label: 'By'});
 ```
+
+## Column {width="60%"}
 
 ```{ojs}
 //| panel: fill
-//| dependson: room-table
-
 
 filtered = transpose(data).filter(function(d) {
   return year_filter.beg <= new Date(d.date).getFullYear() && new Date(d.date).getFullYear() <= year_filter.end; 
@@ -81,6 +107,9 @@ filtered = transpose(data).filter(function(d) {
 
 width = '100%'; 
 height = '500px'; 
+
+groups = Array.from(new Set(filtered.map(d => d?.[by_variable]))).sort()
+colors = d3.scaleOrdinal(d3.schemeTableau10).domain(groups)
 
 roomMap = {
   // You'll often see Leaflet examples initializing a map like L.map('map'),
@@ -104,7 +133,8 @@ roomMap = {
   
   var rooms = L.featureGroup(); 
   for (var i = 0; i < filtered.length; i++) {
-    let room = L.marker([filtered[i].lat, filtered[i].long]); 
+    var c = colors(filtered[i]?.[by_variable]);
+    let room = L.circleMarker([filtered[i].lat, filtered[i].long], {color: c, fillColor:c}); 
     room.bindPopup(filtered[i].linked_name); 
     rooms.addLayer(room);
   }
@@ -113,6 +143,45 @@ roomMap = {
   map.fitBounds(rooms.getBounds(), {maxZoom: 7});
 }
 ```
+
+## Column {width="40%"}
+
+```{ojs}
+
+Plot.rectY(filtered, 
+  Plot.binX(
+    {y: "count"}, 
+    {x: "year", fill: by_variable, thresholds: 'auto'}
+  ))
+  .plot({
+    color: {legend: true},
+    marks: [
+      Plot.frame(),
+    ]
+  }
+)
+```
+
+```{ojs}
+Plot.lineY(filtered, 
+    Plot.binX(
+      {y: "mean"}, 
+      {x: "year", y: "rating", stroke: by_variable, strokeWidth: 3}
+    )
+  )
+  .plot({
+    color: {legend: true},
+    marks: [
+      Plot.frame(),
+      Plot.dot(filtered, 
+      {x: "year", y: "rating", color: by_variable, fill: by_variable}
+    )
+    ]
+  }
+)
+```
+
+# List
 
 ::: {#room-table}
 :::

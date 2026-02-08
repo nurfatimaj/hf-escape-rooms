@@ -7,6 +7,7 @@ country: Estonia
 long: 24.745003226989787
 lat: 59.43084041532564
 completion-time: 
+rating: 1
 
 about: 
   template: broadside

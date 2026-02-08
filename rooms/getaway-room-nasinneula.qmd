@@ -6,6 +6,8 @@ city: Tampere
 country: Finland
 long: 23.778763371966672
 lat: 61.49594371317772
+completion-time: 
+rating: 2
 
 about: 
   template: broadside
