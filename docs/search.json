@@ -1,10 +1,38 @@
 [
   {
-    "objectID": "rooms/the-escape-game-heist.html",
-    "href": "rooms/the-escape-game-heist.html",
-    "title": "The Heist",
+    "objectID": "rooms/makeitout-the-pirates.html",
+    "href": "rooms/makeitout-the-pirates.html",
+    "title": "Return of the Pirates of the Future",
     "section": "",
-    "text": "Fatima’s impressions:\n\nquite challenging\nnon-standard puzzles that require some physical action"
+    "text": "Fatima’s impressions:\n\ninteresting puzzles (almost no locks)\nauditory puzzle"
+  },
+  {
+    "objectID": "rooms/great-escape-steam-punk-adventure.html",
+    "href": "rooms/great-escape-steam-punk-adventure.html",
+    "title": "Steampunk Adventure",
+    "section": "",
+    "text": "Fatima’s impressions:\n\nsome puzzles were removed from the sequence, but not from the room\nthere were a few of super frustrating puzzles that didn’t work quite well"
+  },
+  {
+    "objectID": "rooms/makeitout-the-extremist.html",
+    "href": "rooms/makeitout-the-extremist.html",
+    "title": "The Extremist",
+    "section": "",
+    "text": "Fatima’s impressions:\n\na lot of locks without clear indication of which solution is for which lock\noverall, hints about where clues are found were not always super clear\ncolour puzzle that is very hard to solve without additional light source"
+  },
+  {
+    "objectID": "rooms/elamysteeri-marien-muotokuvat.html",
+    "href": "rooms/elamysteeri-marien-muotokuvat.html",
+    "title": "Marien Muotokuvat",
+    "section": "",
+    "text": "Fatima’s impressions:\n\na lot of interesting puzzles!\nsome puzzles require objects to be constructed by hand"
+  },
+  {
+    "objectID": "rooms/ingame-indiana-jones.html",
+    "href": "rooms/ingame-indiana-jones.html",
+    "title": "Indiana Jones and the Lost Temple",
+    "section": "",
+    "text": "Fatima’s impressions:\n\ntoo many random objects\ncolour-based puzzle in a very dark room\ninteresting cooperation-type puzzle"
   },
   {
     "objectID": "rooms/getaway-room-smugglers.html",
@@ -12,6 +40,13 @@
     "title": "Smugglers",
     "section": "",
     "text": "Fatima’s impressions:\n\nauditory puzzle\nTampere theme"
+  },
+  {
+    "objectID": "rooms/the-room-221b-baker-street.html",
+    "href": "rooms/the-room-221b-baker-street.html",
+    "title": "221B Baker Street",
+    "section": "",
+    "text": "Fatima’s impressions:\n\nthere is a puzzle that requires immense precision (lose a lot of time)\nsome clues are not super intuitive (easy to get stuck thinking it is solved one way, but turns out it is solved differently)"
   },
   {
     "objectID": "rooms/getaway-room-finlayson-lights.html",
@@ -25,7 +60,21 @@
     "href": "index.html",
     "title": "Hanno and Fatima's Escape Rooms",
     "section": "",
-    "text": "viewof year_filter = Inputs.form({\n  beg: Inputs.number([2023, Infinity], {step: 1, label: 'From', placeholder: new Date().getFullYear(), value: 2023}), \n  end: Inputs.number([2023, Infinity], {step: 1, label: 'to', placeholder: new Date().getFullYear(), value: new Date().getFullYear()}), \n}, \n{\n  template: (inputs) =&gt; htl.html`&lt;div class=\"row justify-content-between no-gutters\"&gt;\n    &lt;div class=\"col\"&gt;${inputs.beg}&lt;/div&gt;\n    &lt;div class=\"col\"&gt;${inputs.end}&lt;/div&gt;\n    &lt;/div&gt;`\n});\n\n\n\n\n\n\n\n\n\nfiltered = transpose(data).filter(function(d) {\n  return year_filter.beg &lt;= new Date(d.date).getFullYear() && new Date(d.date).getFullYear() &lt;= year_filter.end; \n})\n\nwidth = '100%'; \nheight = '500px'; \n\nroomMap = {\n  // You'll often see Leaflet examples initializing a map like L.map('map'),\n  // which tells the library to look for a div with the id 'map' on the page.\n  // In Observable, we instead create a div from scratch in this cell, so it's\n  // completely self-contained.\n  let container = DOM.element('div', { style: `width:${width};height:${height}` });\n  \n  // Note that I'm yielding the container pretty early here: this allows the\n  // div to be placed on the page. This is important, because Leaflet uses\n  // the div's .offsetWidth and .offsetHeight to size the map. If I were\n  // to only return the container at the end of this method, Leaflet might\n  // get the wrong idea about the map's size.\n  yield container;\n  \n  // Now we create a map object and add a layer to it.\n  let map = L.map(container);\n  let osmLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png', {\n      attribution: '&copy; &lt;a href=\"http://osm.org/copyright\"&gt;OpenStreetMap&lt;/a&gt; contributors'\n  }).addTo(map);\n  \n  var rooms = L.featureGroup(); \n  for (var i = 0; i &lt; filtered.length; i++) {\n    let room = L.marker([filtered[i].lat, filtered[i].long]); \n    room.bindPopup(filtered[i].linked_name); \n    rooms.addLayer(room);\n  }\n  \n  map.addLayer(rooms); \n  map.fitBounds(rooms.getBounds(), {maxZoom: 7});\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Room\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nRoom\n\n\n\nCity\n\n\n\nCountry\n\n\n\nPlayers\n\n\n\n\n\n\n\n\nMar 10, 2024\n\n\nFinlaysonin Sähkövalo\n\n\nTampere\n\n\nFinland\n\n\nHanno, Fatima\n\n\n\n\n\n\nApr 30, 2023\n\n\nMission: Mars\n\n\nMinneapolis, MN\n\n\nUSA\n\n\nHanno, Fatima, Unknown 1, Unknown 2\n\n\n\n\n\n\nMay 20, 2023\n\n\nPrison Break\n\n\nMinneapolis, MN\n\n\nUSA\n\n\nHanno, Fatima\n\n\n\n\n\n\nMay 23, 2024\n\n\nSmugglers\n\n\nTampere\n\n\nFinland\n\n\nHanno, Fatima\n\n\n\n\n\n\nMay 20, 2023\n\n\nThe Heist\n\n\nMinneapolis, MN\n\n\nUSA\n\n\nHanno, Fatima\n\n\n\n\n\n\nNo matching items"
+    "text": "viewof year_filter = Inputs.form({\n  beg: Inputs.number([2023, Infinity], {step: 1, label: 'From', placeholder: new Date().getFullYear(), value: 2023}), \n  end: Inputs.number([2023, Infinity], {step: 1, label: 'to', placeholder: new Date().getFullYear(), value: new Date().getFullYear()}), \n}, \n{\n  template: (inputs) =&gt; htl.html`&lt;div class=\"row justify-content-between no-gutters\"&gt;\n    &lt;div class=\"col\"&gt;${inputs.beg}&lt;/div&gt;\n    &lt;div class=\"col\"&gt;${inputs.end}&lt;/div&gt;\n    &lt;/div&gt;`\n});\n\n\n\n\n\n\n\n\n\nfiltered = transpose(data).filter(function(d) {\n  return year_filter.beg &lt;= new Date(d.date).getFullYear() && new Date(d.date).getFullYear() &lt;= year_filter.end; \n})\n\nwidth = '100%'; \nheight = '500px'; \n\nroomMap = {\n  // You'll often see Leaflet examples initializing a map like L.map('map'),\n  // which tells the library to look for a div with the id 'map' on the page.\n  // In Observable, we instead create a div from scratch in this cell, so it's\n  // completely self-contained.\n  let container = DOM.element('div', { style: `width:${width};height:${height}` });\n  \n  // Note that I'm yielding the container pretty early here: this allows the\n  // div to be placed on the page. This is important, because Leaflet uses\n  // the div's .offsetWidth and .offsetHeight to size the map. If I were\n  // to only return the container at the end of this method, Leaflet might\n  // get the wrong idea about the map's size.\n  yield container;\n  \n  // Now we create a map object and add a layer to it.\n  let map = L.map(container);\n  let osmLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png', {\n      attribution: '&copy; &lt;a href=\"http://osm.org/copyright\"&gt;OpenStreetMap&lt;/a&gt; contributors'\n  }).addTo(map);\n  \n  var rooms = L.featureGroup(); \n  for (var i = 0; i &lt; filtered.length; i++) {\n    let room = L.marker([filtered[i].lat, filtered[i].long]); \n    room.bindPopup(filtered[i].linked_name); \n    rooms.addLayer(room);\n  }\n  \n  map.addLayer(rooms); \n  map.fitBounds(rooms.getBounds(), {maxZoom: 7});\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Date - Oldest\n      \n      \n        Date - Newest\n      \n      \n        Room\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nDate\n\n\n\nRoom\n\n\n\nRating\n\n\n\nCity\n\n\n\nCountry\n\n\n\nPlayers\n\n\n\nCompletion time\n\n\n\n\n\n\n\n\nFeb 6, 2026\n\n\nThe Extremist\n\n\n3\n\n\nVaasa\n\n\nFinland\n\n\nHanno, Fatima, Aino, Samuli\n\n\n59 min\n\n\n\n\n\n\nFeb 6, 2026\n\n\nReturn of the Pirates of the Future\n\n\n4\n\n\nVaasa\n\n\nFinland\n\n\nHanno, Fatima, Aino, Samuli\n\n\n32 min\n\n\n\n\n\n\nAug 13, 2025\n\n\nDer letzte Seelenwanderer\n\n\n3\n\n\nFrankfurt am Main\n\n\nGermany\n\n\nHanno, Fatima\n\n\n \n\n\n\n\n\n\nAug 10, 2025\n\n\nStar of the Theater\n\n\n4\n\n\nTampere\n\n\nFinland\n\n\nHanno, Fatima\n\n\n \n\n\n\n\n\n\nJul 3, 2025\n\n\nNäsinneula\n\n\n \n\n\nTampere\n\n\nFinland\n\n\nHanno, Fatima, Aisha, Bakosi\n\n\n \n\n\n\n\n\n\nJan 11, 2025\n\n\nOut of Mars\n\n\n1\n\n\nTampere\n\n\nFinland\n\n\nHanno, Fatima\n\n\n \n\n\n\n\n\n\nOct 19, 2024\n\n\nDer Wald\n\n\n4\n\n\nFrankfurt am Main\n\n\nGermany\n\n\nHanno, Fatima\n\n\n \n\n\n\n\n\n\nOct 13, 2024\n\n\nSteampunk Adventure\n\n\n1\n\n\nFrankfurt am Main\n\n\nGermany\n\n\nHanno, Fatima\n\n\n \n\n\n\n\n\n\nOct 3, 2024\n\n\nFinlaysonin Sähkövalo\n\n\n5\n\n\nTampere\n\n\nFinland\n\n\nHanno, Fatima\n\n\n \n\n\n\n\n\n\nSep 22, 2024\n\n\n221B Baker Street\n\n\n \n\n\nTallinn\n\n\nEstonia\n\n\nHanno, Fatima, Heiko\n\n\n \n\n\n\n\n\n\nSep 14, 2024\n\n\nMarien Muotokuvat\n\n\n5\n\n\nTampere\n\n\nFinland\n\n\nHanno, Fatima\n\n\n \n\n\n\n\n\n\nMay 26, 2024\n\n\nIndiana Jones and the Lost Temple\n\n\n1\n\n\nTallinn\n\n\nEstonia\n\n\nHanno, Fatima, Heiko\n\n\n \n\n\n\n\n\n\nMay 23, 2024\n\n\nSmugglers\n\n\n \n\n\nTampere\n\n\nFinland\n\n\nHanno, Fatima\n\n\n \n\n\n\n\n\n\nMay 20, 2023\n\n\nPrison Break\n\n\n \n\n\nMinneapolis, MN\n\n\nUSA\n\n\nHanno, Fatima, Unknown X\n\n\n \n\n\n\n\n\n\nMay 20, 2023\n\n\nThe Heist\n\n\n \n\n\nMinneapolis, MN\n\n\nUSA\n\n\nHanno, Fatima\n\n\n \n\n\n\n\n\n\nApr 30, 2023\n\n\nMission: Mars\n\n\n \n\n\nMinneapolis, MN\n\n\nUSA\n\n\nHanno, Fatima, Unknown 1, Unknown 2\n\n\n \n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "rooms/room-fox-der-wald.html",
+    "href": "rooms/room-fox-der-wald.html",
+    "title": "Der Wald",
+    "section": "",
+    "text": "Fatima’s impressions:\n\nvery immersive\none of the puzzles also requires a lot of precision"
+  },
+  {
+    "objectID": "rooms/getaway-room-star-of-theatre.html",
+    "href": "rooms/getaway-room-star-of-theatre.html",
+    "title": "Star of the Theater",
+    "section": "",
+    "text": "Fatima’s impressions:\n\noverall super interesting\nmaybe 90 min is a bit too long (was getting tired towards the end)\none of the clues had to be used twice!"
   },
   {
     "objectID": "rooms/the-escape-game-prison-break.html",
@@ -35,10 +84,38 @@
     "text": "Fatima’s impressions:\n\nneeds cooperation\ninteresting non-lock puzzles\nrequires some crawling"
   },
   {
+    "objectID": "rooms/room-escape-finlayson-out-of-mars.html",
+    "href": "rooms/room-escape-finlayson-out-of-mars.html",
+    "title": "Out of Mars",
+    "section": "",
+    "text": "Fatima’s impressions:\n\ncan’t remember much, but it wasn’t very interesting\n\nIt seems the company is closed by now (8 Feb 2026)."
+  },
+  {
     "objectID": "rooms/the-escape-game-mission-mars.html",
     "href": "rooms/the-escape-game-mission-mars.html",
     "title": "Mission: Mars",
     "section": "",
     "text": "Fatima’s impressions\n\nnot many locks, but quite a few number pads"
+  },
+  {
+    "objectID": "rooms/the-escape-game-heist.html",
+    "href": "rooms/the-escape-game-heist.html",
+    "title": "The Heist",
+    "section": "",
+    "text": "Fatima’s impressions:\n\nquite challenging\nnon-standard puzzles that require some physical action"
+  },
+  {
+    "objectID": "rooms/room-fox-der-letzte-seelenwanderer.html",
+    "href": "rooms/room-fox-der-letzte-seelenwanderer.html",
+    "title": "Der letzte Seelenwanderer",
+    "section": "",
+    "text": "Fatima’s impressions:\n\nvery immersive\npuzzles need to be done in very precise order\nSo, most of the time we spent being frustrated which puzzle to do now or being told by the game master that we are jumping too much ahead\ninteresting non-standard puzzles\none room"
+  },
+  {
+    "objectID": "rooms/getaway-room-nasinneula.html",
+    "href": "rooms/getaway-room-nasinneula.html",
+    "title": "Näsinneula",
+    "section": "",
+    "text": "ImportantRoom is closed\n\n\n\nRoom is closed since August 2025!\n\n\nFatima’s impressions:\n\npuzzles were slightly fiddly\n\nlocks needed some wiggling before being opened\npictures were changing a bit too fast\nstrong Finnish accent made it hard to understand an audio clue"
   }
 ]

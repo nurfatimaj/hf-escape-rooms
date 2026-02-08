@@ -1,0 +1,19 @@
+{
+  "hash": "fa8be0e3becacad06964b3d78cd614d3",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: Näsinneula\ncompany: Getaway Room Escape\ndate: 3 Jul 2025 18:00\ncity: Tampere\ncountry: Finland\nlong: 23.778763371966672\nlat: 61.49594371317772\n\nabout: \n  template: broadside\n\nplayers:\n  - Hanno\n  - Fatima\n  - Aisha\n  - Bakosi\n  \ncost: 118.40\ncurrency: EUR\npaid-by: Hanno\n\nexecute: \n  echo: false\n  warning: false\n  error: false\n---\n\n::: callout-important\n## Room is closed\n\n[Room is closed](https://www.getaway.fi/en/the-nasinneula-escape-room-closes-on-august/) since August 2025!\n:::\n\nFatima's impressions:\n\n-   puzzles were slightly fiddly\n    -   locks needed some wiggling before being opened\n    -   pictures were changing a bit too fast\n    -   strong Finnish accent made it hard to understand an audio clue\n\n\n::: {.cell}\n::: {.cell-output-display}\n\n```{=html}\n<div class=\"leaflet html-widget html-fill-item\" id=\"htmlwidget-ce35e0bb6ecdc35450c5\" style=\"width:100%;height:464px;\"></div>\n<script type=\"application/json\" data-for=\"htmlwidget-ce35e0bb6ecdc35450c5\">{\"x\":{\"options\":{\"crs\":{\"crsClass\":\"L.CRS.EPSG3857\",\"code\":null,\"proj4def\":null,\"projectedBounds\":null,\"options\":{}}},\"calls\":[{\"method\":\"addTiles\",\"args\":[\"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\",null,null,{\"minZoom\":0,\"maxZoom\":18,\"tileSize\":256,\"subdomains\":\"abc\",\"errorTileUrl\":\"\",\"tms\":false,\"noWrap\":false,\"zoomOffset\":0,\"zoomReverse\":false,\"opacity\":1,\"zIndex\":1,\"detectRetina\":false,\"attribution\":\"&copy; <a href=\\\"https://openstreetmap.org/copyright/\\\">OpenStreetMap<\\/a>,  <a href=\\\"https://opendatacommons.org/licenses/odbl/\\\">ODbL<\\/a>\"}]},{\"method\":\"addProviderTiles\",\"args\":[\"Esri.WorldGrayCanvas\",null,null,{\"errorTileUrl\":\"\",\"noWrap\":false,\"detectRetina\":false}]},{\"method\":\"addMarkers\",\"args\":[61.49594371317772,23.77876337196667,null,null,null,{\"interactive\":true,\"draggable\":false,\"keyboard\":true,\"title\":\"\",\"alt\":\"\",\"zIndexOffset\":0,\"opacity\":1,\"riseOnHover\":false,\"riseOffset\":250},null,null,null,null,null,{\"interactive\":false,\"permanent\":false,\"direction\":\"auto\",\"opacity\":1,\"offset\":[0,0],\"textsize\":\"10px\",\"textOnly\":false,\"className\":\"\",\"sticky\":true},null]}],\"limits\":{\"lat\":[61.49594371317772,61.49594371317772],\"lng\":[23.77876337196667,23.77876337196667]}},\"evals\":[],\"jsHooks\":[]}</script>\n```\n\n:::\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<link href=\"../site_libs/htmltools-fill-0.5.8.1/fill.css\" rel=\"stylesheet\" />\n<script src=\"../site_libs/htmlwidgets-1.6.4/htmlwidgets.js\"></script>\n<script src=\"../site_libs/jquery-3.6.0/jquery-3.6.0.min.js\"></script>\n<link href=\"../site_libs/leaflet-1.3.1/leaflet.css\" rel=\"stylesheet\" />\n<script src=\"../site_libs/leaflet-1.3.1/leaflet.js\"></script>\n<link href=\"../site_libs/leafletfix-1.0.0/leafletfix.css\" rel=\"stylesheet\" />\n<script src=\"../site_libs/proj4-2.6.2/proj4.min.js\"></script>\n<script src=\"../site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js\"></script>\n<link href=\"../site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css\" rel=\"stylesheet\" />\n<script src=\"../site_libs/leaflet-binding-2.2.3/leaflet.js\"></script>\n<script src=\"../site_libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js\"></script>\n<script src=\"../site_libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js\"></script>\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

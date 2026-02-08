@@ -1,25 +1,25 @@
 ---
-title: Finlaysonin Sähkövalo
-company: Getaway Room Escape
-date: 3 Oct 2024 15:45
-city: Tampere
-country: Finland
-long: 23.775841373010213
-lat: 61.50008288065604
+title: 221B Baker Street
+company: The Room
+date: 22 Sep 2024 16:45
+city: Tallinn
+country: Estonia
+long: 24.745003226989787
+lat: 59.43084041532564
 completion-time: 
-rating: 5
 
 about: 
   template: broadside
   links: 
     - icon: globe2
-      href: https://www.getaway.fi/tampere/pakohuoneet/vellamonkatu/#finlaysoninsahkovalo
+      href: https://theroom.ee/en/221b-baker-street
 
 players:
   - Hanno
   - Fatima
+  - Heiko
   
-cost: 80
+cost: 75
 currency: EUR
 paid-by: Hanno
 
@@ -31,10 +31,8 @@ execute:
 
 Fatima's impressions:
 
--   very interesting puzzles
--   some require a lot of physical activity
--   really needs 4 people
--   Tampere theme
+-   there is a puzzle that requires immense precision (lose a lot of time)
+-   some clues are not super intuitive (easy to get stuck thinking it is solved one way, but turns out it is solved differently)
 
 ```{r}
 library(leaflet)

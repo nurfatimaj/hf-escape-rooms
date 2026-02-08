@@ -1,0 +1,19 @@
+{
+  "hash": "6476ee4d123f55b5248ff4278325f527",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: Steampunk Adventure\ncompany: The Great Escape\ndate: 13 Oct 2024 11:45\ncity: Frankfurt am Main\ncountry: Germany\nlong: 8.745012454524723\nlat: 50.12385310728172\ncompletion-time: \nrating: 1\n\nabout: \n  template: broadside\n  links: \n    - icon: globe2\n      href: https://www.escapefrankfurt.de/steampunkadventure\n\nplayers:\n  - Hanno\n  - Fatima\n  \ncost: 120\ncurrency: EUR\npaid-by: Hanno\n\nexecute: \n  echo: false\n  warning: false\n  error: false\n---\n\nFatima's impressions:\n\n-   some puzzles were removed from the sequence, but not from the room\n-   there were a few of super frustrating puzzles that didn't work quite well\n\n\n::: {.cell}\n::: {.cell-output-display}\n\n```{=html}\n<div class=\"leaflet html-widget html-fill-item\" id=\"htmlwidget-90e886ce981406e0cf6a\" style=\"width:100%;height:464px;\"></div>\n<script type=\"application/json\" data-for=\"htmlwidget-90e886ce981406e0cf6a\">{\"x\":{\"options\":{\"crs\":{\"crsClass\":\"L.CRS.EPSG3857\",\"code\":null,\"proj4def\":null,\"projectedBounds\":null,\"options\":{}}},\"calls\":[{\"method\":\"addTiles\",\"args\":[\"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\",null,null,{\"minZoom\":0,\"maxZoom\":18,\"tileSize\":256,\"subdomains\":\"abc\",\"errorTileUrl\":\"\",\"tms\":false,\"noWrap\":false,\"zoomOffset\":0,\"zoomReverse\":false,\"opacity\":1,\"zIndex\":1,\"detectRetina\":false,\"attribution\":\"&copy; <a href=\\\"https://openstreetmap.org/copyright/\\\">OpenStreetMap<\\/a>,  <a href=\\\"https://opendatacommons.org/licenses/odbl/\\\">ODbL<\\/a>\"}]},{\"method\":\"addProviderTiles\",\"args\":[\"Esri.WorldGrayCanvas\",null,null,{\"errorTileUrl\":\"\",\"noWrap\":false,\"detectRetina\":false}]},{\"method\":\"addMarkers\",\"args\":[50.12385310728172,8.745012454524723,null,null,null,{\"interactive\":true,\"draggable\":false,\"keyboard\":true,\"title\":\"\",\"alt\":\"\",\"zIndexOffset\":0,\"opacity\":1,\"riseOnHover\":false,\"riseOffset\":250},null,null,null,null,null,{\"interactive\":false,\"permanent\":false,\"direction\":\"auto\",\"opacity\":1,\"offset\":[0,0],\"textsize\":\"10px\",\"textOnly\":false,\"className\":\"\",\"sticky\":true},null]}],\"limits\":{\"lat\":[50.12385310728172,50.12385310728172],\"lng\":[8.745012454524723,8.745012454524723]}},\"evals\":[],\"jsHooks\":[]}</script>\n```\n\n:::\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<link href=\"../site_libs/htmltools-fill-0.5.8.1/fill.css\" rel=\"stylesheet\" />\n<script src=\"../site_libs/htmlwidgets-1.6.4/htmlwidgets.js\"></script>\n<script src=\"../site_libs/jquery-3.6.0/jquery-3.6.0.min.js\"></script>\n<link href=\"../site_libs/leaflet-1.3.1/leaflet.css\" rel=\"stylesheet\" />\n<script src=\"../site_libs/leaflet-1.3.1/leaflet.js\"></script>\n<link href=\"../site_libs/leafletfix-1.0.0/leafletfix.css\" rel=\"stylesheet\" />\n<script src=\"../site_libs/proj4-2.6.2/proj4.min.js\"></script>\n<script src=\"../site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js\"></script>\n<link href=\"../site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css\" rel=\"stylesheet\" />\n<script src=\"../site_libs/leaflet-binding-2.2.3/leaflet.js\"></script>\n<script src=\"../site_libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js\"></script>\n<script src=\"../site_libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js\"></script>\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

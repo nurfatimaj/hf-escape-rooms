@@ -1,0 +1,48 @@
+---
+title: Der letzte Seelenwanderer
+company: Room Fox
+date: 13 Aug 2025 19:45
+city: Frankfurt am Main
+country: Germany
+long: 8.668714369863936
+lat: 50.10668310943905
+completion-time:
+rating: 3
+
+about: 
+  template: broadside
+  links: 
+    - href: https://www.room-fox.de/escape-room/frankfurt-escape-room-der-letzte-seelenwanderer/
+      icon: globe2
+
+players:
+  - Hanno
+  - Fatima
+  
+cost: 80
+currency: EUR
+paid-by: Hanno
+
+execute: 
+  echo: false
+  warning: false
+  error: false
+---
+
+Fatima's impressions:
+
+-   very immersive
+-   puzzles need to be done in very precise order\
+    So, most of the time we spent being frustrated which puzzle to do now or being told by the game master that we are jumping too much ahead
+-   interesting non-standard puzzles
+-   one room
+
+```{r}
+library(leaflet)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addProviderTiles('Esri.WorldGrayCanvas') %>% 
+  addMarkers(lng = rmarkdown::metadata$long, 
+             lat = rmarkdown::metadata$lat)
+```

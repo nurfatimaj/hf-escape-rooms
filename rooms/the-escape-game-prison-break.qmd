@@ -19,6 +19,7 @@ about:
 players:
   - Hanno
   - Fatima
+  - Unknown X
   
 cost: 51.71
 currency: USD

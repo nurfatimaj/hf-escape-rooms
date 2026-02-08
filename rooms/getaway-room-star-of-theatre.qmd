@@ -1,25 +1,25 @@
 ---
-title: Finlaysonin Sähkövalo
+title: Star of the Theater
 company: Getaway Room Escape
-date: 3 Oct 2024 15:45
+date: 10 Aug 2025 11:00
 city: Tampere
 country: Finland
-long: 23.775841373010213
-lat: 61.50008288065604
+long: 23.75479939752234
+lat: 61.49474881398655
 completion-time: 
-rating: 5
+rating: 4
 
 about: 
   template: broadside
   links: 
     - icon: globe2
-      href: https://www.getaway.fi/tampere/pakohuoneet/vellamonkatu/#finlaysoninsahkovalo
+      href: https://www.getaway.fi/tampere/pakohuoneet/satamakatu/#teatterin-tahti
 
 players:
   - Hanno
   - Fatima
   
-cost: 80
+cost: 110
 currency: EUR
 paid-by: Hanno
 
@@ -31,10 +31,9 @@ execute:
 
 Fatima's impressions:
 
--   very interesting puzzles
--   some require a lot of physical activity
--   really needs 4 people
--   Tampere theme
+-   overall super interesting
+-   maybe 90 min is a bit too long (was getting tired towards the end)
+-   one of the clues had to be used twice!
 
 ```{r}
 library(leaflet)

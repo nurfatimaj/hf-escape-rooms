@@ -1,27 +1,29 @@
 ---
-title: Finlaysonin Sähkövalo
+title: Return of the Pirates of the Future
 company: Getaway Room Escape
-date: 3 Oct 2024 15:45
-city: Tampere
+date: 6 Feb 2026 16:30
+city: Vaasa
 country: Finland
-long: 23.775841373010213
-lat: 61.50008288065604
-completion-time: 
-rating: 5
+long: 21.616331858984722
+lat: 63.097392740258165
+completion-time: 32 min
+rating: 4
 
 about: 
   template: broadside
   links: 
     - icon: globe2
-      href: https://www.getaway.fi/tampere/pakohuoneet/vellamonkatu/#finlaysoninsahkovalo
+      href: https://makeitout.fi/en
 
 players:
   - Hanno
   - Fatima
+  - Aino
+  - Samuli
   
-cost: 80
+cost: 58
 currency: EUR
-paid-by: Hanno
+paid-by: Fatima
 
 execute: 
   echo: false
@@ -31,10 +33,8 @@ execute:
 
 Fatima's impressions:
 
--   very interesting puzzles
--   some require a lot of physical activity
--   really needs 4 people
--   Tampere theme
+-   interesting puzzles (almost no locks)
+-   auditory puzzle
 
 ```{r}
 library(leaflet)

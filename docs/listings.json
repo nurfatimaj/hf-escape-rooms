@@ -2,11 +2,22 @@
   {
     "listing": "/index.html",
     "items": [
+      "/rooms/makeitout-the-extremist.html",
+      "/rooms/makeitout-the-pirates.html",
+      "/rooms/room-fox-der-letzte-seelenwanderer.html",
+      "/rooms/getaway-room-star-of-theatre.html",
+      "/rooms/getaway-room-nasinneula.html",
+      "/rooms/room-escape-finlayson-out-of-mars.html",
+      "/rooms/room-fox-der-wald.html",
+      "/rooms/great-escape-steam-punk-adventure.html",
       "/rooms/getaway-room-finlayson-lights.html",
-      "/rooms/the-escape-game-mission-mars.html",
-      "/rooms/the-escape-game-prison-break.html",
+      "/rooms/the-room-221b-baker-street.html",
+      "/rooms/elamysteeri-marien-muotokuvat.html",
+      "/rooms/ingame-indiana-jones.html",
       "/rooms/getaway-room-smugglers.html",
-      "/rooms/the-escape-game-heist.html"
+      "/rooms/the-escape-game-prison-break.html",
+      "/rooms/the-escape-game-heist.html",
+      "/rooms/the-escape-game-mission-mars.html"
     ]
   }
 ]

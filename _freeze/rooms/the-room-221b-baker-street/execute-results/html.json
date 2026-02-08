@@ -1,0 +1,19 @@
+{
+  "hash": "787265097ab7cc20759ecfae0e4fe61c",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: 221B Baker Street\ncompany: The Room\ndate: 22 Sep 2024 16:45\ncity: Tallinn\ncountry: Estonia\nlong: 24.745003226989787\nlat: 59.43084041532564\ncompletion-time: \n\nabout: \n  template: broadside\n  links: \n    - icon: globe2\n      href: https://theroom.ee/en/221b-baker-street\n\nplayers:\n  - Hanno\n  - Fatima\n  - Heiko\n  \ncost: 75\ncurrency: EUR\npaid-by: Hanno\n\nexecute: \n  echo: false\n  warning: false\n  error: false\n---\n\nFatima's impressions:\n\n-   there is a puzzle that requires immense precision (lose a lot of time)\n-   some clues are not super intuitive (easy to get stuck thinking it is solved one way, but turns out it is solved differently)\n\n\n::: {.cell}\n::: {.cell-output-display}\n\n```{=html}\n<div class=\"leaflet html-widget html-fill-item\" id=\"htmlwidget-9babe6bee1bdbeeda48d\" style=\"width:100%;height:464px;\"></div>\n<script type=\"application/json\" data-for=\"htmlwidget-9babe6bee1bdbeeda48d\">{\"x\":{\"options\":{\"crs\":{\"crsClass\":\"L.CRS.EPSG3857\",\"code\":null,\"proj4def\":null,\"projectedBounds\":null,\"options\":{}}},\"calls\":[{\"method\":\"addTiles\",\"args\":[\"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\",null,null,{\"minZoom\":0,\"maxZoom\":18,\"tileSize\":256,\"subdomains\":\"abc\",\"errorTileUrl\":\"\",\"tms\":false,\"noWrap\":false,\"zoomOffset\":0,\"zoomReverse\":false,\"opacity\":1,\"zIndex\":1,\"detectRetina\":false,\"attribution\":\"&copy; <a href=\\\"https://openstreetmap.org/copyright/\\\">OpenStreetMap<\\/a>,  <a href=\\\"https://opendatacommons.org/licenses/odbl/\\\">ODbL<\\/a>\"}]},{\"method\":\"addProviderTiles\",\"args\":[\"Esri.WorldGrayCanvas\",null,null,{\"errorTileUrl\":\"\",\"noWrap\":false,\"detectRetina\":false}]},{\"method\":\"addMarkers\",\"args\":[59.43084041532564,24.74500322698979,null,null,null,{\"interactive\":true,\"draggable\":false,\"keyboard\":true,\"title\":\"\",\"alt\":\"\",\"zIndexOffset\":0,\"opacity\":1,\"riseOnHover\":false,\"riseOffset\":250},null,null,null,null,null,{\"interactive\":false,\"permanent\":false,\"direction\":\"auto\",\"opacity\":1,\"offset\":[0,0],\"textsize\":\"10px\",\"textOnly\":false,\"className\":\"\",\"sticky\":true},null]}],\"limits\":{\"lat\":[59.43084041532564,59.43084041532564],\"lng\":[24.74500322698979,24.74500322698979]}},\"evals\":[],\"jsHooks\":[]}</script>\n```\n\n:::\n:::\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<link href=\"../site_libs/htmltools-fill-0.5.8.1/fill.css\" rel=\"stylesheet\" />\n<script src=\"../site_libs/htmlwidgets-1.6.4/htmlwidgets.js\"></script>\n<script src=\"../site_libs/jquery-3.6.0/jquery-3.6.0.min.js\"></script>\n<link href=\"../site_libs/leaflet-1.3.1/leaflet.css\" rel=\"stylesheet\" />\n<script src=\"../site_libs/leaflet-1.3.1/leaflet.js\"></script>\n<link href=\"../site_libs/leafletfix-1.0.0/leafletfix.css\" rel=\"stylesheet\" />\n<script src=\"../site_libs/proj4-2.6.2/proj4.min.js\"></script>\n<script src=\"../site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js\"></script>\n<link href=\"../site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css\" rel=\"stylesheet\" />\n<script src=\"../site_libs/leaflet-binding-2.2.3/leaflet.js\"></script>\n<script src=\"../site_libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js\"></script>\n<script src=\"../site_libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js\"></script>\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,45 @@
+---
+title: Der Wald
+company: Room Fox
+date: 19 Oct 2024 10:15
+city: Frankfurt am Main
+country: Germany
+long: 8.668714369863936
+lat: 50.10668310943905
+completion-time:
+rating: 4
+
+about: 
+  template: broadside
+  links: 
+    - href: https://www.room-fox.de/escape-room/frankfurt-escape-room-der-wald/
+      icon: globe2
+
+players:
+  - Hanno
+  - Fatima
+  
+cost: 80
+currency: EUR
+paid-by: Hanno
+
+execute: 
+  echo: false
+  warning: false
+  error: false
+---
+
+Fatima's impressions:
+
+-   very immersive
+-   one of the puzzles also requires a lot of precision
+
+```{r}
+library(leaflet)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addProviderTiles('Esri.WorldGrayCanvas') %>% 
+  addMarkers(lng = rmarkdown::metadata$long, 
+             lat = rmarkdown::metadata$lat)
+```

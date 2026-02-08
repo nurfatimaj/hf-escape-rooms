@@ -1,0 +1,48 @@
+---
+title: The Extremist
+company: Getaway Room Escape
+date: 6 Feb 2026 17:05
+city: Vaasa
+country: Finland
+long: 21.616331858984722
+lat: 63.097392740258165
+completion-time: 59 min
+rating: 3
+
+about: 
+  template: broadside
+  links: 
+    - icon: globe2
+      href: https://makeitout.fi/en
+
+players:
+  - Hanno
+  - Fatima
+  - Aino
+  - Samuli
+  
+cost: 58
+currency: EUR
+paid-by: Fatima
+
+execute: 
+  echo: false
+  warning: false
+  error: false
+---
+
+Fatima's impressions:
+
+-   a lot of locks without clear indication of which solution is for which lock
+-   overall, hints about where clues are found were not always super clear
+-   colour puzzle that is very hard to solve without additional light source
+
+```{r}
+library(leaflet)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addProviderTiles('Esri.WorldGrayCanvas') %>% 
+  addMarkers(lng = rmarkdown::metadata$long, 
+             lat = rmarkdown::metadata$lat)
+```

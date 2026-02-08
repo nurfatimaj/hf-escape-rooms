@@ -1,25 +1,22 @@
 ---
-title: Finlaysonin Sähkövalo
-company: Getaway Room Escape
-date: 3 Oct 2024 15:45
+title: Out of Mars
+company: Room Escape Finlayson
+date: 11 Jan 2025 19:15
 city: Tampere
 country: Finland
-long: 23.775841373010213
-lat: 61.50008288065604
+long: 23.758682497522862
+lat: 61.50214617574079
 completion-time: 
-rating: 5
+rating: 1
 
 about: 
   template: broadside
-  links: 
-    - icon: globe2
-      href: https://www.getaway.fi/tampere/pakohuoneet/vellamonkatu/#finlaysoninsahkovalo
 
 players:
   - Hanno
   - Fatima
   
-cost: 80
+cost: 90
 currency: EUR
 paid-by: Hanno
 
@@ -27,14 +24,14 @@ execute:
   echo: false
   warning: false
   error: false
+  freeze: true
 ---
 
 Fatima's impressions:
 
--   very interesting puzzles
--   some require a lot of physical activity
--   really needs 4 people
--   Tampere theme
+-   can't remember much, but it wasn't very interesting
+
+It seems the company is closed by now (8 Feb 2026).
 
 ```{r}
 library(leaflet)

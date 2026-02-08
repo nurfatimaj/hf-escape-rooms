@@ -6,14 +6,21 @@ listing:
   fields: 
     - date
     - title
+    - rating
     - city
     - country
     - players
+    - completion-time
   field-display-names: 
     title: Room
+    rating: Rating
     city: City
     country: Country
     players: Players
+    completion-time: Completion time
+  sort: 
+    - date desc
+    
 execute: 
   echo: false
   warning: false
@@ -66,6 +73,7 @@ viewof year_filter = Inputs.form({
 ```{ojs}
 //| panel: fill
 //| dependson: room-table
+
 
 filtered = transpose(data).filter(function(d) {
   return year_filter.beg <= new Date(d.date).getFullYear() && new Date(d.date).getFullYear() <= year_filter.end; 

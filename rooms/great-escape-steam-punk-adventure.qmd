@@ -1,25 +1,25 @@
 ---
-title: Finlaysonin Sähkövalo
-company: Getaway Room Escape
-date: 3 Oct 2024 15:45
-city: Tampere
-country: Finland
-long: 23.775841373010213
-lat: 61.50008288065604
+title: Steampunk Adventure
+company: The Great Escape
+date: 13 Oct 2024 11:45
+city: Frankfurt am Main
+country: Germany
+long: 8.745012454524723
+lat: 50.12385310728172
 completion-time: 
-rating: 5
+rating: 1
 
 about: 
   template: broadside
   links: 
     - icon: globe2
-      href: https://www.getaway.fi/tampere/pakohuoneet/vellamonkatu/#finlaysoninsahkovalo
+      href: https://www.escapefrankfurt.de/steampunkadventure
 
 players:
   - Hanno
   - Fatima
   
-cost: 80
+cost: 120
 currency: EUR
 paid-by: Hanno
 
@@ -31,10 +31,8 @@ execute:
 
 Fatima's impressions:
 
--   very interesting puzzles
--   some require a lot of physical activity
--   really needs 4 people
--   Tampere theme
+-   some puzzles were removed from the sequence, but not from the room
+-   there were a few of super frustrating puzzles that didn't work quite well
 
 ```{r}
 library(leaflet)

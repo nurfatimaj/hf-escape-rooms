@@ -1,25 +1,26 @@
 ---
-title: Finlaysonin Sähkövalo
-company: Getaway Room Escape
-date: 3 Oct 2024 15:45
-city: Tampere
-country: Finland
-long: 23.775841373010213
-lat: 61.50008288065604
+title: Indiana Jones and the Lost Temple
+company: iNGAME
+date: 26 May 2024 16:15
+city: Tallinn
+country: Estonia
+long: 24.7600296999135
+lat: 59.43818608830056
 completion-time: 
-rating: 5
+rating: 1
 
 about: 
   template: broadside
   links: 
     - icon: globe2
-      href: https://www.getaway.fi/tampere/pakohuoneet/vellamonkatu/#finlaysoninsahkovalo
+      href: https://ingame.ee/quest/indiana-jones-ja-kadunud-tempel/
 
 players:
   - Hanno
   - Fatima
+  - Heiko
   
-cost: 80
+cost: 85
 currency: EUR
 paid-by: Hanno
 
@@ -31,10 +32,9 @@ execute:
 
 Fatima's impressions:
 
--   very interesting puzzles
--   some require a lot of physical activity
--   really needs 4 people
--   Tampere theme
+-   too many random objects
+-   colour-based puzzle in a very dark room
+-   interesting cooperation-type puzzle
 
 ```{r}
 library(leaflet)

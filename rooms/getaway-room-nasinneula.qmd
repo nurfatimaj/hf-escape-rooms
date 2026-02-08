@@ -1,0 +1,50 @@
+---
+title: Näsinneula
+company: Getaway Room Escape
+date: 3 Jul 2025 18:00
+city: Tampere
+country: Finland
+long: 23.778763371966672
+lat: 61.49594371317772
+
+about: 
+  template: broadside
+
+players:
+  - Hanno
+  - Fatima
+  - Aisha
+  - Bakosi
+  
+cost: 118.40
+currency: EUR
+paid-by: Hanno
+
+execute: 
+  echo: false
+  warning: false
+  error: false
+---
+
+::: callout-important
+## Room is closed
+
+[Room is closed](https://www.getaway.fi/en/the-nasinneula-escape-room-closes-on-august/) since August 2025!
+:::
+
+Fatima's impressions:
+
+-   puzzles were slightly fiddly
+    -   locks needed some wiggling before being opened
+    -   pictures were changing a bit too fast
+    -   strong Finnish accent made it hard to understand an audio clue
+
+```{r}
+library(leaflet)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addProviderTiles('Esri.WorldGrayCanvas') %>% 
+  addMarkers(lng = rmarkdown::metadata$long, 
+             lat = rmarkdown::metadata$lat)
+```

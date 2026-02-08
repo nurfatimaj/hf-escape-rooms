@@ -1,11 +1,11 @@
 ---
-title: Finlaysonin Sähkövalo
-company: Getaway Room Escape
-date: 3 Oct 2024 15:45
+title: Marien Muotokuvat
+company: Elämysteeri
+date: 14 Sep 2024 12:00
 city: Tampere
 country: Finland
-long: 23.775841373010213
-lat: 61.50008288065604
+long: 23.769245697522543
+lat: 61.49748419328131
 completion-time: 
 rating: 5
 
@@ -13,7 +13,7 @@ about:
   template: broadside
   links: 
     - icon: globe2
-      href: https://www.getaway.fi/tampere/pakohuoneet/vellamonkatu/#finlaysoninsahkovalo
+      href: https://elamysteeri.fi/blogi/pakohuone-marien-muotokuvat/
 
 players:
   - Hanno
@@ -31,10 +31,8 @@ execute:
 
 Fatima's impressions:
 
--   very interesting puzzles
--   some require a lot of physical activity
--   really needs 4 people
--   Tampere theme
+-   a lot of interesting puzzles!
+-   some puzzles require objects to be constructed by hand
 
 ```{r}
 library(leaflet)
