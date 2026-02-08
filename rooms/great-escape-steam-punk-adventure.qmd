@@ -6,7 +6,7 @@ city: Frankfurt am Main
 country: Germany
 long: 8.745012454524723
 lat: 50.12385310728172
-completion-time: 
+completion-time: 60 min
 rating: 1
 
 about: 
