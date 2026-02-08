@@ -24,6 +24,7 @@ listing:
     completion-time: Completion time
   sort: 
     - date desc
+  sort-ui: [date, title, rating, city, country, completion-time]
     
 execute: 
   echo: false
