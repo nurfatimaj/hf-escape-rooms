@@ -101,9 +101,16 @@ viewof by_variable = Inputs.select(new Map([['Country', 'country'], ['Rating', '
 
 ```{ojs}
 
-filtered = transpose(data).filter(function(d) {
-  return year_filter.beg <= new Date(d.date).getFullYear() && new Date(d.date).getFullYear() <= year_filter.end; 
-})
+// Parse date column
+rows = transpose(data).map(d => ({
+  ...d,
+  // If already a Date, keep it; if string/number, convert once.
+  date: d.date instanceof Date ? d.date : new Date(d.date)
+}))
+
+filtered = rows.filter(d =>
+  year_filter.beg <= d.date.getUTCFullYear() && d.date.getUTCFullYear() <= year_filter.end
+)
 
 width = '100%'; 
 height = '500px'; 
@@ -172,7 +179,7 @@ html`<p style="font-size: 3rem; text-align: center; font-weight: bold; color: #E
 Plot.rectY(filtered, 
   Plot.binX(
     {y: "count"}, 
-    {x: "year", fill: by_variable, thresholds: 'auto'}
+    {x: "date", fill: by_variable, thresholds: 'auto'}
   ))
   .plot({
     color: {legend: true},
@@ -186,7 +193,7 @@ Plot.rectY(filtered,
 ```{ojs}
 Plot.lineY(filtered, 
     Plot.binX(
-      {y: "mean"}, 
+      {y: "mean", interval: d3.timeMonth}, 
       {x: "date", y: "rating", stroke: by_variable, strokeWidth: 3}
     )
   )
