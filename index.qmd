@@ -84,7 +84,7 @@ ojs_define(data = room_tbl)
 //| classes: bg-white text-dark
 
 viewof year_filter = Inputs.form({
-  beg: Inputs.number([2023, Infinity], {step: 1, label: 'From', placeholder: new Date().getFullYear(), value: 2023}), 
+  beg: Inputs.number([2023, Infinity], {step: 1, label: 'From', placeholder: new Date().getFullYear(), value: new Date().getFullYear()}), 
   end: Inputs.number([2023, Infinity], {step: 1, label: 'to', placeholder: new Date().getFullYear(), value: new Date().getFullYear()}), 
 }, 
 {
@@ -100,7 +100,6 @@ viewof by_variable = Inputs.select(new Map([['Country', 'country'], ['Rating', '
 ## Column {width="60%"}
 
 ```{ojs}
-//| panel: fill
 
 filtered = transpose(data).filter(function(d) {
   return year_filter.beg <= new Date(d.date).getFullYear() && new Date(d.date).getFullYear() <= year_filter.end; 
@@ -144,6 +143,27 @@ roomMap = {
   map.fitBounds(rooms.getBounds(), {maxZoom: 7});
 }
 ```
+
+::: {.card .vh-50}
+```{ojs}
+
+html`<p style="font-size: 2rem; text-align: center; margin: 0; color: #0072B2;">Number of rooms</p>`
+html`<p style="font-size: 3rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${filtered.length}</p>`
+
+```
+
+```{ojs}
+
+html`<p style="font-size: 2rem; text-align: center; margin: 0; color: #0072B2;">Average completion time</p>`
+html`<p style="font-size: 3rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${d3.mean(filtered, d => d.time_min)?.toFixed(1)} min</p>`
+
+```
+
+```{ojs}
+html`<p style="font-size: 2rem; text-align: center; margin: 0; color: #0072B2;">Best completion time</p>`
+html`<p style="font-size: 3rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${d3.min(filtered, d => d.time_min)?.toFixed(1)} min</p>`
+```
+:::
 
 ## Column {width="40%"}
 
