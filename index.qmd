@@ -187,7 +187,7 @@ Plot.rectY(filtered,
 Plot.lineY(filtered, 
     Plot.binX(
       {y: "mean"}, 
-      {x: "year", y: "rating", stroke: by_variable, strokeWidth: 3}
+      {x: "date", y: "rating", stroke: by_variable, strokeWidth: 3}
     )
   )
   .plot({
@@ -195,7 +195,7 @@ Plot.lineY(filtered,
     marks: [
       Plot.frame(),
       Plot.dot(filtered, 
-      {x: "year", y: "rating", color: by_variable, fill: by_variable}
+      {x: "date", y: "rating", color: by_variable, fill: by_variable}
     )
     ]
   }
