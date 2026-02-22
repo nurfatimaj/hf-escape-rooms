@@ -15,6 +15,7 @@ listing:
     - country
     - players
     - completion-time
+    - clues
   field-display-names: 
     title: Room
     rating: Rating
@@ -22,6 +23,7 @@ listing:
     country: Country
     players: Players
     completion-time: Completion time
+    clues: Hints used
   sort: 
     - date desc
   sort-ui: [date, title, rating, city, country, completion-time]
@@ -48,7 +50,7 @@ room_list <- list.files('rooms', '.qmd',
 names(room_list) <- basename(str_remove_all(room_list, '.qmd'))
 
 room_yaml <- map(room_list, rmarkdown::yaml_front_matter)
-room_yaml <- map(room_yaml, ~.x[c('title', 'date', 'long', 'lat', 'company', 'country', 'completion-time', 'rating')])
+room_yaml <- map(room_yaml, ~.x[c('title', 'date', 'long', 'lat', 'company', 'country', 'completion-time', 'rating', 'clues')])
 room_yaml <- lapply(room_yaml, function(room) {
   lapply(room, function(yaml) {
     if (is.null(yaml)) {
@@ -170,10 +172,16 @@ html`<p style="font-size: 3rem; text-align: center; font-weight: bold; color: #E
 html`<p style="font-size: 2rem; text-align: center; margin: 0; color: #0072B2;">Best completion time</p>`
 html`<p style="font-size: 3rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${d3.min(filtered, d => d.time_min)?.toFixed(1)} min</p>`
 ```
+
+```{ojs}
+html`<p style="font-size: 2rem; text-align: center; margin: 0; color: #0072B2;">Average number of hints</p>`
+html`<p style="font-size: 3rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${d3.mean(filtered, d => d.clues)?.toFixed(1)}</p>`
+```
 :::
 
 ## Column {width="40%"}
 
+::: card
 ```{ojs}
 
 Plot.rectY(filtered, 
@@ -194,11 +202,12 @@ Plot.rectY(filtered,
 Plot.lineY(filtered, 
     Plot.binX(
       {y: "mean", interval: d3.timeMonth}, 
-      {x: "date", y: "rating", stroke: by_variable, strokeWidth: 3}
+      {x: "date", y: "rating", strokeWidth: 3}
     )
   )
   .plot({
-    color: {legend: true},
+    color: {legend: false},
+    y: {label: "Rating"}, 
     marks: [
       Plot.frame(),
       Plot.dot(filtered, 
@@ -208,6 +217,27 @@ Plot.lineY(filtered,
   }
 )
 ```
+
+```{ojs}
+Plot.lineY(filtered, 
+    Plot.binX(
+      {y: "mean", interval: d3.timeMonth}, 
+      {x: "date", y: "time_min", strokeWidth: 3}
+    )
+  )
+  .plot({
+    color: {legend: false},
+    y: {label: "Completion time (min)"}, 
+    marks: [
+      Plot.frame(),
+      Plot.dot(filtered, 
+      {x: "date", y: "time_min", color: by_variable, fill: by_variable}
+    )
+    ]
+  }
+)
+```
+:::
 
 # List
 

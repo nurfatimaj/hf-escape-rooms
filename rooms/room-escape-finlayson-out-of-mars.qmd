@@ -8,6 +8,7 @@ long: 23.758682497522862
 lat: 61.50214617574079
 completion-time: 
 rating: 1
+clues: 
 
 about: 
   template: broadside

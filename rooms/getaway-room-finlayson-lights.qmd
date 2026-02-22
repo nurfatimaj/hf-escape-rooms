@@ -8,6 +8,7 @@ long: 23.775841373010213
 lat: 61.50008288065604
 completion-time: 60 min
 rating: 5
+clues: 
 
 about: 
   template: broadside
