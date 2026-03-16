@@ -202,16 +202,16 @@ Plot.rectY(filtered,
 Plot.lineY(filtered, 
     Plot.binX(
       {y: "mean", interval: d3.timeMonth}, 
-      {x: "date", y: "rating", strokeWidth: 3}
+      {x: "date", y: "clues", strokeWidth: 3}
     )
   )
   .plot({
     color: {legend: false},
-    y: {label: "Rating"}, 
+    y: {label: "# of hints"}, 
     marks: [
       Plot.frame(),
       Plot.dot(filtered, 
-      {x: "date", y: "rating", color: by_variable, fill: by_variable}
+      {x: "date", y: "clues", color: by_variable, fill: by_variable}
     )
     ]
   }

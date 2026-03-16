@@ -1,0 +1,53 @@
+---
+title: Gravity
+company: The Room
+date: 15 Mar 2026 11:30
+city: Tallinn
+country: Estonia
+long: 24.745003226989787
+lat: 59.43084041532564
+completion-time: 45 min
+rating: 4
+clues: 0
+
+about: 
+  template: broadside
+  links: 
+    - icon: globe2
+      href: https://theroom.ee/en/gravity
+
+players:
+  - Hanno
+  - Fatima
+  - Heiko
+  
+cost: 75
+currency: EUR
+paid-by: Hanno
+
+execute: 
+  echo: false
+  warning: false
+  error: false
+---
+
+:::: columns
+::: {.callout-important .column icon="false"}
+## Fatima's impressions
+
+-   Puzzles were quite interesting
+-   Technical aspects of the room were very interesting! They moved to mimic what happens at the space station or re-entry pod.
+-   There were very few puzzles, but it took time because they required extreme precision. Other than that they were fairly logical.
+-   There was sometimes a bit of lag between using the clue and getting the result.
+:::
+::::
+
+```{r}
+library(leaflet)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addProviderTiles('Esri.WorldGrayCanvas') %>% 
+  addMarkers(lng = rmarkdown::metadata$long, 
+             lat = rmarkdown::metadata$lat)
+```
