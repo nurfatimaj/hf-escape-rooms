@@ -67,8 +67,8 @@ room_tbl <- room_tbl %>% mutate(path = room_list[room])
 room_tbl <- room_tbl %>% mutate(dt = parse_date_time(date, 'dmy HM'))
 room_tbl <- room_tbl %>% mutate(date = format(dt, '%d %b %Y'), 
                                 year = year(dt), 
-                                time_min = str_extract(`completion-time`, '[[:digit:]]+'), 
-                                time_min = as.numeric(time_min), 
+                                time_min = duration(`completion-time`), 
+                                time_min = as.numeric(time_min, units = 'minutes'), 
                                 time_min = case_when(
                                   str_detect(`completion-time`, 'min') ~ time_min, 
                                   str_detect(`completion-time`, 'h|hour') ~ time_min * 60, 
@@ -153,29 +153,39 @@ roomMap = {
 }
 ```
 
-::: {.card .vh-50}
+### Row {height="50%"}
+
+::: {.card .vh-25}
 ```{ojs}
 
-html`<p style="font-size: 2rem; text-align: center; margin: 0; color: #0072B2;">Number of rooms</p>`
-html`<p style="font-size: 3rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${filtered.length}</p>`
+html`<p style="font-size: 1.5rem; text-align: center; margin: 0; color: #0072B2;">Number of rooms</p>`
+html`<p style="font-size: 2.5rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${filtered.length}</p>`
 
 ```
+:::
 
+::: {.card .vh-25}
 ```{ojs}
 
-html`<p style="font-size: 2rem; text-align: center; margin: 0; color: #0072B2;">Average completion time</p>`
-html`<p style="font-size: 3rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${d3.mean(filtered, d => d.time_min)?.toFixed(1)} min</p>`
+html`<p style="font-size: 1.25rem; text-align: center; margin: 0; color: #0072B2;">Average time</p>`
+html`<p style="font-size: 2.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${d3.mean(filtered, d => d.time_min)?.toFixed(1)} min</p>`
 
 ```
+:::
 
+### Row {height="50%"}
+
+::: {.card .vh-25}
 ```{ojs}
-html`<p style="font-size: 2rem; text-align: center; margin: 0; color: #0072B2;">Best completion time</p>`
-html`<p style="font-size: 3rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${d3.min(filtered, d => d.time_min)?.toFixed(1)} min</p>`
+html`<p style="font-size: 1.25rem; text-align: center; margin: 0; color: #0072B2;">Best time</p>`
+html`<p style="font-size: 2.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${d3.min(filtered, d => d.time_min)?.toFixed(1)} min</p>`
 ```
+:::
 
+::: {.card .vh-25}
 ```{ojs}
-html`<p style="font-size: 2rem; text-align: center; margin: 0; color: #0072B2;">Average number of hints</p>`
-html`<p style="font-size: 3rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${d3.mean(filtered, d => d.clues)?.toFixed(1)}</p>`
+html`<p style="font-size: 1.25rem; text-align: center; margin: 0; color: #0072B2;">Average number of hints</p>`
+html`<p style="font-size: 2.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${d3.mean(filtered, d => d.clues)?.toFixed(1)}</p>`
 ```
 :::
 

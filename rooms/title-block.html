@@ -1,0 +1,60 @@
+<header id="title-block-header" class="quarto-title-block default">
+  <div class="quarto-title">
+    <h1 class="title">$title$</h1>
+    $if(subtitle)$<p class="subtitle">$subtitle$</p>$endif$
+  </div>
+
+  <div class="quarto-title-meta">
+    <!-- Existing Author/Date info -->
+    $if(author)$
+    <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">$author$</div>
+    </div>
+    $endif$
+
+    $if(date)$
+    <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">$date$</div>
+    </div>
+    $endif$
+
+    <!-- Your Custom Hints Field -->
+    $if(completion-time)$
+    <div>
+      <div class="quarto-title-meta-heading">Completion time</div>
+      <div class="quarto-title-meta-contents">$completion-time$</div>
+    </div>
+    $endif$
+    
+    $if(clues)$
+    <div>
+      <div class="quarto-title-meta-heading">Hints</div>
+      <div class="quarto-title-meta-contents">$clues$</div>
+    </div>
+    $endif$
+    
+    $if(rating)$
+    <div>
+      <div class="quarto-title-meta-heading">Rating</div>
+      <div class="quarto-title-meta-contents">$rating$</div>
+    </div>
+    $endif$
+    
+    $if(cost)$
+    <div>
+      <div class="quarto-title-meta-heading">Cost</div>
+      <div class="quarto-title-meta-contents">$cost$ $currency$</div>
+    </div>
+    
+    <div>
+      <div class="quarto-title-meta-heading">Paid by</div>
+      <div class="quarto-title-meta-contents">$paid-by$</div>
+    </div>
+    $endif$
+    
+    
+    
+  </div>
+</header>

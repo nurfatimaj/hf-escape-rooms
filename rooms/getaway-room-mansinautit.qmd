@@ -1,0 +1,55 @@
+---
+title: Mansenauts
+company: Getaway Room Escape
+date: 5 Apr 2026 13:30
+city: Tampere
+country: Finland
+long: 23.778763371966672
+lat: 61.49594371317772
+completion-time: 51 min 32 sec
+rating: 4
+clues: 0
+
+about: 
+  template: broadside
+  links: 
+    - icon: globe2
+      href: https://www.getaway.fi/en/tampere-en/escape-rooms/akerlundinkatu/#mansenauts
+
+players:
+  - Hanno
+  - Fatima
+  
+cost: 90
+currency: EUR
+paid-by: Hanno
+
+template-partials: 
+  - title-block.html
+
+execute: 
+  echo: false
+  warning: false
+  error: false
+---
+
+::: {.callout-important icon="false"}
+## Fatima's impressions
+
+-   Puzzles were quite interesting
+    -   a few with locks, so they can be a little boring
+    -   a few needed cooperation, so they were fun
+-   Some technical glitches at the very beginning of the game and some equipment was too silent during the game
+-   Overall, the flow was straightforward and there was no time of staring at things in frustration
+-   Some puzzles we got partially through good "guess" (even though we figured the proper way of solving it)
+:::
+
+```{r}
+library(leaflet)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addProviderTiles('Esri.WorldGrayCanvas') %>% 
+  addMarkers(lng = rmarkdown::metadata$long, 
+             lat = rmarkdown::metadata$lat)
+```
