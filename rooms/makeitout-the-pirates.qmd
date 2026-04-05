@@ -1,6 +1,6 @@
 ---
 title: Return of the Pirates of the Future
-company: Getaway Room Escape
+company: Makeitout
 date: 6 Feb 2026 16:30
 city: Vaasa
 country: Finland
@@ -22,6 +22,9 @@ players:
   - Aino
   - Samuli
   
+template-partials: 
+  - title-block.html
+  
 cost: 58
 currency: EUR
 paid-by: Fatima
@@ -32,9 +35,10 @@ execute:
   error: false
 ---
 
-Fatima's impressions:
+Fatima’s impressions:
 
 -   interesting puzzles (almost no locks)
+
 -   auditory puzzle
 
 ```{r}

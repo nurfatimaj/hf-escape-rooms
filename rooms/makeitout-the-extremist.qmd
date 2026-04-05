@@ -1,6 +1,6 @@
 ---
 title: The Extremist
-company: Getaway Room Escape
+company: Makeitout
 date: 6 Feb 2026 17:05
 city: Vaasa
 country: Finland
@@ -21,6 +21,9 @@ players:
   - Fatima
   - Aino
   - Samuli
+
+template-partials: 
+  - title-block.html
   
 cost: 58
 currency: EUR
