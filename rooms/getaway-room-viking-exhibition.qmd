@@ -1,0 +1,53 @@
+---
+title: Viking Exhibition
+company: Getaway Room Escape
+date: 10 May 2026 12:45
+city: Hämeenlinna
+country: Finland
+long: 24.45828558824754
+lat: 61.003311625868484
+completion-time: 60 min
+rating: 5
+clues: 3
+
+about: 
+  template: broadside
+  links: 
+    - icon: globe2
+      href: https://www.getaway.fi/en/hameenlinna-en/escape-rooms/#viking-exhibition
+
+players:
+  - Hanno
+  - Fatima
+  
+cost: 90
+currency: EUR
+paid-by: Hanno
+
+template-partials: 
+  - title-block.html
+
+execute: 
+  echo: false
+  warning: false
+  error: false
+---
+
+::: {.callout-important icon="false"}
+## Fatima's impressions
+
+- Varied puzzles, some based on locks, some based on physics
+- There is a lot to do in the room, so it's really good for larger groups (3-4 people)
+- Sometimes the order of puzzles wasn't entirely clear and solving in the wrong order could stall the game
+- Overall, very good experience, even though we haven't finished it on time.
+:::
+
+```{r}
+library(leaflet)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addProviderTiles('Esri.WorldGrayCanvas') %>% 
+  addMarkers(lng = rmarkdown::metadata$long, 
+             lat = rmarkdown::metadata$lat)
+```

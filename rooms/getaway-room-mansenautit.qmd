@@ -36,12 +36,12 @@ execute:
 ::: {.callout-important icon="false"}
 ## Fatima's impressions
 
--   Puzzles were quite interesting
-    -   a few with locks, so they can be a little boring
-    -   a few needed cooperation, so they were fun
--   Some technical glitches at the very beginning of the game and some equipment was too silent during the game
--   Overall, the flow was straightforward and there was no time of staring at things in frustration
--   Some puzzles we got partially through good "guess" (even though we figured the proper way of solving it)
+- Puzzles were quite interesting
+  - a few with locks, so they can be a little boring
+  - a few needed cooperation, so they were fun
+- Some technical glitches at the very beginning of the game and some equipment was too silent during the game
+- Overall, the flow was straightforward and there was no time of staring at things in frustration
+- Some puzzles we got partially through good "guess" (even though we figured the proper way of solving it)
 :::
 
 ```{r}
