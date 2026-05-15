@@ -7,6 +7,7 @@ country: Germany
 long: 8.668714369863936
 lat: 50.10668310943905
 completion-time:
+total-time: 60 min
 rating: 4
 clues: 
 
@@ -32,8 +33,8 @@ execute:
 
 Fatima's impressions:
 
--   very immersive
--   one of the puzzles also requires a lot of precision
+- very immersive
+- one of the puzzles also requires a lot of precision
 
 ```{r}
 library(leaflet)

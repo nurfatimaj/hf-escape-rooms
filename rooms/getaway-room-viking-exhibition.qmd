@@ -7,6 +7,7 @@ country: Finland
 long: 24.45828558824754
 lat: 61.003311625868484
 completion-time: 60 min
+total-time: 60 min
 rating: 5
 clues: 3
 

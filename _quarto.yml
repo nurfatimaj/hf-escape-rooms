@@ -4,6 +4,10 @@ project:
 
 website:
   title: "Hanno and Fatima's Escape Rooms"
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
 
 execute: 
   freeze: auto

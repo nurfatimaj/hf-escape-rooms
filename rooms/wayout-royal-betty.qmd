@@ -1,0 +1,46 @@
+---
+title: Royal Betty
+company: WayOut
+date: 19 Feb 2025 18:45
+city: Tampere
+country: Finland
+long: 23.7728018
+lat: 61.4980364
+completion-time: 60 min
+total-time: 60 min
+rating: 3.5
+clues: ~
+about:
+  template: broadside
+  links:
+  - icon: globe2
+    href: https://wayout.fi/en-gb/tampere/royal-betty
+players:
+- Hanno
+- Fatima
+cost: 94
+currency: EUR
+paid-by: Hanno
+template-partials: title-block.html
+execute:
+  echo: false
+  warning: false
+  error: false
+---
+
+::: {.callout-important icon="false"}
+## Fatima's impressions
+
+- Had some smell-based puzzle (always a little annoying)
+- We haven't finished the room (I think we had maybe 4-5 steps left)
+:::
+
+```{r}
+library(leaflet)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addProviderTiles('Esri.WorldGrayCanvas') %>% 
+  addMarkers(lng = rmarkdown::metadata$long, 
+             lat = rmarkdown::metadata$lat)
+```

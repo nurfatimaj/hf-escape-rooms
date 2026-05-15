@@ -7,6 +7,7 @@ country: USA
 long: -93.24013254232992
 lat: 44.85548059168515
 completion-time:
+total-time: 60 min
 rating: 4
 clues: 
 

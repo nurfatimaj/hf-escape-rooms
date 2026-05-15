@@ -1,0 +1,49 @@
+---
+title: 'Level 1: Ravengate 1881'
+company: WayOut
+date: 14 May 2026 15:30
+city: Tampere
+country: Finland
+long: 23.7728018
+lat: 61.4980364
+completion-time: 74 min 28 sec
+total-time: 75 min
+rating: 4.5
+clues: 5
+about:
+  template: broadside
+  links:
+  - icon: globe2
+    href: https://wayout.fi/en-gb/tampere/level-1-ravengate-1881
+players:
+- Hanno
+- Fatima
+cost: 94
+currency: EUR
+paid-by: Fatima
+template-partials: title-block.html
+execute:
+  echo: false
+  warning: false
+  error: false
+---
+
+::: {.callout-important icon="false"}
+## Fatima's impressions
+
+- Lockless room
+- Quite interesting puzzles
+- A few really annoying puzzles (one of them based on sounds)
+- The logic is fairly straightforward, although we got stuck in a few places
+- Very enjoyable!
+:::
+
+```{r}
+library(leaflet)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addProviderTiles('Esri.WorldGrayCanvas') %>% 
+  addMarkers(lng = rmarkdown::metadata$long, 
+             lat = rmarkdown::metadata$lat)
+```

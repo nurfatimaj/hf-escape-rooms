@@ -7,6 +7,7 @@ country: Finland
 long: 23.75479939752234
 lat: 61.49474881398655
 completion-time: 
+total-time: 90 min
 rating: 4
 clues: 
 
@@ -32,9 +33,9 @@ execute:
 
 Fatima's impressions:
 
--   overall super interesting
--   maybe 90 min is a bit too long (was getting tired towards the end)
--   one of the clues had to be used twice!
+- overall super interesting
+- maybe 90 min is a bit too long (was getting tired towards the end)
+- one of the clues had to be used twice!
 
 ```{r}
 library(leaflet)

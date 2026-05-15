@@ -7,6 +7,7 @@ country: Finland
 long: 23.778763371966672
 lat: 61.49594371317772
 completion-time: 
+total-time: 60 min
 rating: 2
 clues: 
 
@@ -37,10 +38,10 @@ execute:
 
 Fatima's impressions:
 
--   puzzles were slightly fiddly
-    -   locks needed some wiggling before being opened
-    -   pictures were changing a bit too fast
-    -   strong Finnish accent made it hard to understand an audio clue
+- puzzles were slightly fiddly
+  - locks needed some wiggling before being opened
+  - pictures were changing a bit too fast
+  - strong Finnish accent made it hard to understand an audio clue
 
 ```{r}
 library(leaflet)

@@ -7,6 +7,7 @@ country: Estonia
 long: 24.745003226989787
 lat: 59.43084041532564
 completion-time: 
+total-time: 60 min
 rating: 1
 clues: 
 

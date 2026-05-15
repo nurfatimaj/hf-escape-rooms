@@ -62,6 +62,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -75,16 +76,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-dashboard/quarto-dashboard.js"></script>
+<script src="site_libs/quarto-dashboard/stickythead.js"></script>
+
+
+
+<script src="site_libs/quarto-dashboard/web-components.js" type="module"></script>
+<script src="site_libs/quarto-dashboard/components.js"></script>
+
 <script id="quarto-search-options" type="application/json">{
-  "location": "sidebar",
+  "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "start",
-  "type": "textbox",
+  "panel-placement": "end",
+  "type": "overlay",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -118,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     const options = {
       valueNames: ['listing-date','listing-title','listing-rating','listing-city','listing-country','listing-players','listing-completion-time','listing-clues',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: [],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -138,73 +151,380 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 <script type="ojs-define">
-{"contents":[{"name":"data","value":{"room":["elamysteeri-marien-muotokuvat","getaway-room-finlayson-lights","getaway-room-mansenautit","getaway-room-nasinneula","getaway-room-smugglers","getaway-room-star-of-theatre","getaway-room-viking-exhibition","great-escape-steam-punk-adventure","ingame-indiana-jones","makeitout-the-extremist","makeitout-the-pirates","room-escape-finlayson-out-of-mars","room-fox-der-letzte-seelenwanderer","room-fox-der-wald","secret-escape-game-relictum","the-escape-game-heist","the-escape-game-mission-mars","the-escape-game-prison-break","the-room-221b-baker-street","the-room-gravity"],"title":["Marien Muotokuvat","Finlaysonin Sähkövalo","Mansenauts","Näsinneula","Smugglers","Star of the Theater","Viking Exhibition","Steampunk Adventure","Indiana Jones and the Lost Temple","The Extremist","Return of the Pirates of the Future","Out of Mars","Der letzte Seelenwanderer","Der Wald","Indi Joneson: Relictum","The Heist","Mission: Mars","Prison Break","221B Baker Street","Gravity"],"date":["14 Sep 2024","03 Oct 2024","05 Apr 2026","03 Jul 2025","23 May 2024","10 Aug 2025","10 May 2026","13 Oct 2024","26 May 2024","06 Feb 2026","06 Feb 2026","11 Jan 2025","13 Aug 2025","19 Oct 2024","22 Feb 2026","20 May 2023","30 Apr 2023","20 May 2023","22 Sep 2024","15 Mar 2026"],"long":[23.7692456975225,23.7758413730102,23.7787633719667,23.7787633719667,23.7758413730102,23.7547993975223,24.4582855882475,8.74501245452472,24.7600296999135,21.6163318589847,21.6163318589847,23.7586824975229,8.66871436986394,8.66871436986394,8.67755958179205,-93.2401325423299,-93.2401325423299,-93.2401325423299,24.7450032269898,24.7450032269898],"lat":[61.4974841932813,61.500082880656,61.4959437131777,61.4959437131777,61.500082880656,61.4947488139865,61.0033116258685,50.1238531072817,59.4381860883006,63.0973927402582,63.0973927402582,61.5021461757408,50.106683109439,50.106683109439,50.1118605109238,44.8554805916852,44.8554805916852,44.8554805916852,59.4308404153256,59.4308404153256],"company":["Elämysteeri","Getaway Room Escape","Getaway Room Escape","Getaway Room Escape","Getaway Room Escape","Getaway Room Escape","Getaway Room Escape","The Great Escape","iNGAME","Makeitout","Makeitout","Room Escape Finlayson","Room Fox","Room Fox","Secret Escape Game","The Escape Game","The Escape Game","The Escape Game","The Room","The Room"],"country":["Finland","Finland","Finland","Finland","Finland","Finland","Finland","Germany","Estonia","Finland","Finland","Finland","Germany","Germany","Germany","USA","USA","USA","Estonia","Estonia"],"completion-time":["75 min","60 min","51 min 32 sec",null,"63 min",null,"60 min","60 min",null,"59 min","32 min",null,null,null,"56 min",null,null,null,null,"45 min"],"rating":[5,5,4,2,4,4,5,1,1,3,4,1,3,4,3,4,2,3,1,4],"clues":[null,null,0,null,null,null,3,null,null,null,0,null,null,null,4,null,null,null,null,0],"path":["rooms/elamysteeri-marien-muotokuvat.qmd","rooms/getaway-room-finlayson-lights.qmd","rooms/getaway-room-mansenautit.qmd","rooms/getaway-room-nasinneula.qmd","rooms/getaway-room-smugglers.qmd","rooms/getaway-room-star-of-theatre.qmd","rooms/getaway-room-viking-exhibition.qmd","rooms/great-escape-steam-punk-adventure.qmd","rooms/ingame-indiana-jones.qmd","rooms/makeitout-the-extremist.qmd","rooms/makeitout-the-pirates.qmd","rooms/room-escape-finlayson-out-of-mars.qmd","rooms/room-fox-der-letzte-seelenwanderer.qmd","rooms/room-fox-der-wald.qmd","rooms/secret-escape-game-relictum.qmd","rooms/the-escape-game-heist.qmd","rooms/the-escape-game-mission-mars.qmd","rooms/the-escape-game-prison-break.qmd","rooms/the-room-221b-baker-street.qmd","rooms/the-room-gravity.qmd"],"dt":["2024-09-14 12:00:00","2024-10-03 15:45:00","2026-04-05 13:30:00","2025-07-03 18:00:00","2024-05-23 19:30:00","2025-08-10 11:00:00","2026-05-10 12:45:00","2024-10-13 11:45:00","2024-05-26 16:15:00","2026-02-06 17:05:00","2026-02-06 16:30:00","2025-01-11 19:15:00","2025-08-13 19:45:00","2024-10-19 10:15:00","2026-02-22 12:30:00","2023-05-20 11:20:00","2023-04-30 08:40:00","2023-05-20 13:00:00","2024-09-22 16:45:00","2026-03-15 11:30:00"],"year":[2024,2024,2026,2025,2024,2025,2026,2024,2024,2026,2026,2025,2025,2024,2026,2023,2023,2023,2024,2026],"time_min":[75,60,51.5333333333333,null,63,null,60,60,null,59,32,null,null,null,56,null,null,null,null,45],"linked_name":["<b><a href='rooms/elamysteeri-marien-muotokuvat.qmd' target='_parent'>Marien Muotokuvat<\/a><\/b>","<b><a href='rooms/getaway-room-finlayson-lights.qmd' target='_parent'>Finlaysonin Sähkövalo<\/a><\/b>","<b><a href='rooms/getaway-room-mansenautit.qmd' target='_parent'>Mansenauts<\/a><\/b>","<b><a href='rooms/getaway-room-nasinneula.qmd' target='_parent'>Näsinneula<\/a><\/b>","<b><a href='rooms/getaway-room-smugglers.qmd' target='_parent'>Smugglers<\/a><\/b>","<b><a href='rooms/getaway-room-star-of-theatre.qmd' target='_parent'>Star of the Theater<\/a><\/b>","<b><a href='rooms/getaway-room-viking-exhibition.qmd' target='_parent'>Viking Exhibition<\/a><\/b>","<b><a href='rooms/great-escape-steam-punk-adventure.qmd' target='_parent'>Steampunk Adventure<\/a><\/b>","<b><a href='rooms/ingame-indiana-jones.qmd' target='_parent'>Indiana Jones and the Lost Temple<\/a><\/b>","<b><a href='rooms/makeitout-the-extremist.qmd' target='_parent'>The Extremist<\/a><\/b>","<b><a href='rooms/makeitout-the-pirates.qmd' target='_parent'>Return of the Pirates of the Future<\/a><\/b>","<b><a href='rooms/room-escape-finlayson-out-of-mars.qmd' target='_parent'>Out of Mars<\/a><\/b>","<b><a href='rooms/room-fox-der-letzte-seelenwanderer.qmd' target='_parent'>Der letzte Seelenwanderer<\/a><\/b>","<b><a href='rooms/room-fox-der-wald.qmd' target='_parent'>Der Wald<\/a><\/b>","<b><a href='rooms/secret-escape-game-relictum.qmd' target='_parent'>Indi Joneson: Relictum<\/a><\/b>","<b><a href='rooms/the-escape-game-heist.qmd' target='_parent'>The Heist<\/a><\/b>","<b><a href='rooms/the-escape-game-mission-mars.qmd' target='_parent'>Mission: Mars<\/a><\/b>","<b><a href='rooms/the-escape-game-prison-break.qmd' target='_parent'>Prison Break<\/a><\/b>","<b><a href='rooms/the-room-221b-baker-street.qmd' target='_parent'>221B Baker Street<\/a><\/b>","<b><a href='rooms/the-room-gravity.qmd' target='_parent'>Gravity<\/a><\/b>"]}}]}
+{"contents":[{"name":"data","value":{"room":["elamysteeri-marien-muotokuvat","getaway-room-finlayson-lights","getaway-room-mansenautit","getaway-room-nasinneula","getaway-room-smugglers","getaway-room-star-of-theatre","getaway-room-viking-exhibition","great-escape-steam-punk-adventure","ingame-indiana-jones","makeitout-the-extremist","makeitout-the-pirates","room-escape-finlayson-out-of-mars","room-fox-der-letzte-seelenwanderer","room-fox-der-wald","secret-escape-game-relictum","the-escape-game-heist","the-escape-game-mission-mars","the-escape-game-prison-break","the-room-221b-baker-street","the-room-gravity","wayout-level-1-ravengate-1881","wayout-royal-betty"],"title":["Marien Muotokuvat","Finlaysonin Sähkövalo","Mansenauts","Näsinneula","Smugglers","Star of the Theater","Viking Exhibition","Steampunk Adventure","Indiana Jones and the Lost Temple","The Extremist","Return of the Pirates of the Future","Out of Mars","Der letzte Seelenwanderer","Der Wald","Indi Joneson: Relictum","The Heist","Mission: Mars","Prison Break","221B Baker Street","Gravity","Level 1: Ravengate 1881","Royal Betty"],"date":["14 Sep 2024","03 Oct 2024","05 Apr 2026","03 Jul 2025","23 May 2024","10 Aug 2025","10 May 2026","13 Oct 2024","26 May 2024","06 Feb 2026","06 Feb 2026","11 Jan 2025","13 Aug 2025","19 Oct 2024","22 Feb 2026","20 May 2023","30 Apr 2023","20 May 2023","22 Sep 2024","15 Mar 2026","14 May 2026","19 Feb 2025"],"long":[23.7692456975225,23.7758413730102,23.7787633719667,23.7787633719667,23.7758413730102,23.7547993975223,24.4582855882475,8.74501245452472,24.7600296999135,21.6163318589847,21.6163318589847,23.7586824975229,8.66871436986394,8.66871436986394,8.67755958179205,-93.2401325423299,-93.2401325423299,-93.2401325423299,24.7450032269898,24.7450032269898,23.7728018,23.7728018],"lat":[61.4974841932813,61.500082880656,61.4959437131777,61.4959437131777,61.500082880656,61.4947488139865,61.0033116258685,50.1238531072817,59.4381860883006,63.0973927402582,63.0973927402582,61.5021461757408,50.106683109439,50.106683109439,50.1118605109238,44.8554805916852,44.8554805916852,44.8554805916852,59.4308404153256,59.4308404153256,61.4980364,61.4980364],"company":["Elämysteeri","Getaway Room Escape","Getaway Room Escape","Getaway Room Escape","Getaway Room Escape","Getaway Room Escape","Getaway Room Escape","The Great Escape","iNGAME","Makeitout","Makeitout","Room Escape Finlayson","Room Fox","Room Fox","Secret Escape Game","The Escape Game","The Escape Game","The Escape Game","The Room","The Room","WayOut","WayOut"],"country":["Finland","Finland","Finland","Finland","Finland","Finland","Finland","Germany","Estonia","Finland","Finland","Finland","Germany","Germany","Germany","USA","USA","USA","Estonia","Estonia","Finland","Finland"],"completion-time":["75 min","60 min","51 min 32 sec",null,"63 min",null,"60 min","60 min",null,"59 min","32 min",null,null,null,"56 min",null,null,null,null,"45 min","74 min 28 sec","60 min"],"rating":[5,5,4,2,4,4,5,1,1,3,4,1,3,4,3,4,2,3,1,4,4.5,3.5],"clues":[null,null,0,null,null,null,3,null,null,null,0,null,null,null,4,null,null,null,null,0,5,null],"total-time":["60 min","60 min","60 min","60 min","60 min","90 min","60 min","60 min","60 min","60 min","60 min","60 min","60 min","60 min","60 min","60 min","60 min","60 min","60 min","60 min","75 min","60 min"],"path":["rooms/elamysteeri-marien-muotokuvat.qmd","rooms/getaway-room-finlayson-lights.qmd","rooms/getaway-room-mansenautit.qmd","rooms/getaway-room-nasinneula.qmd","rooms/getaway-room-smugglers.qmd","rooms/getaway-room-star-of-theatre.qmd","rooms/getaway-room-viking-exhibition.qmd","rooms/great-escape-steam-punk-adventure.qmd","rooms/ingame-indiana-jones.qmd","rooms/makeitout-the-extremist.qmd","rooms/makeitout-the-pirates.qmd","rooms/room-escape-finlayson-out-of-mars.qmd","rooms/room-fox-der-letzte-seelenwanderer.qmd","rooms/room-fox-der-wald.qmd","rooms/secret-escape-game-relictum.qmd","rooms/the-escape-game-heist.qmd","rooms/the-escape-game-mission-mars.qmd","rooms/the-escape-game-prison-break.qmd","rooms/the-room-221b-baker-street.qmd","rooms/the-room-gravity.qmd","rooms/wayout-level-1-ravengate-1881.qmd","rooms/wayout-royal-betty.qmd"],"dt":["2024-09-14 12:00:00","2024-10-03 15:45:00","2026-04-05 13:30:00","2025-07-03 18:00:00","2024-05-23 19:30:00","2025-08-10 11:00:00","2026-05-10 12:45:00","2024-10-13 11:45:00","2024-05-26 16:15:00","2026-02-06 17:05:00","2026-02-06 16:30:00","2025-01-11 19:15:00","2025-08-13 19:45:00","2024-10-19 10:15:00","2026-02-22 12:30:00","2023-05-20 11:20:00","2023-04-30 08:40:00","2023-05-20 13:00:00","2024-09-22 16:45:00","2026-03-15 11:30:00","2026-05-14 15:30:00","2025-02-19 18:45:00"],"year":[2024,2024,2026,2025,2024,2025,2026,2024,2024,2026,2026,2025,2025,2024,2026,2023,2023,2023,2024,2026,2026,2025],"time_min":[75,60,51.5333333333333,null,63,null,60,60,null,59,32,null,null,null,56,null,null,null,null,45,74.4666666666667,60],"time_total":[60,60,60,60,60,90,60,60,60,60,60,60,60,60,60,60,60,60,60,60,75,60],"time_left":[-15,0,8.46666666666667,null,-3,null,0,0,null,1,28,null,null,null,4,null,null,null,null,15,0.533333333333331,0],"linked_name":["<b><a href='rooms/elamysteeri-marien-muotokuvat.qmd' target='_parent'>Marien Muotokuvat<\/a><\/b>","<b><a href='rooms/getaway-room-finlayson-lights.qmd' target='_parent'>Finlaysonin Sähkövalo<\/a><\/b>","<b><a href='rooms/getaway-room-mansenautit.qmd' target='_parent'>Mansenauts<\/a><\/b>","<b><a href='rooms/getaway-room-nasinneula.qmd' target='_parent'>Näsinneula<\/a><\/b>","<b><a href='rooms/getaway-room-smugglers.qmd' target='_parent'>Smugglers<\/a><\/b>","<b><a href='rooms/getaway-room-star-of-theatre.qmd' target='_parent'>Star of the Theater<\/a><\/b>","<b><a href='rooms/getaway-room-viking-exhibition.qmd' target='_parent'>Viking Exhibition<\/a><\/b>","<b><a href='rooms/great-escape-steam-punk-adventure.qmd' target='_parent'>Steampunk Adventure<\/a><\/b>","<b><a href='rooms/ingame-indiana-jones.qmd' target='_parent'>Indiana Jones and the Lost Temple<\/a><\/b>","<b><a href='rooms/makeitout-the-extremist.qmd' target='_parent'>The Extremist<\/a><\/b>","<b><a href='rooms/makeitout-the-pirates.qmd' target='_parent'>Return of the Pirates of the Future<\/a><\/b>","<b><a href='rooms/room-escape-finlayson-out-of-mars.qmd' target='_parent'>Out of Mars<\/a><\/b>","<b><a href='rooms/room-fox-der-letzte-seelenwanderer.qmd' target='_parent'>Der letzte Seelenwanderer<\/a><\/b>","<b><a href='rooms/room-fox-der-wald.qmd' target='_parent'>Der Wald<\/a><\/b>","<b><a href='rooms/secret-escape-game-relictum.qmd' target='_parent'>Indi Joneson: Relictum<\/a><\/b>","<b><a href='rooms/the-escape-game-heist.qmd' target='_parent'>The Heist<\/a><\/b>","<b><a href='rooms/the-escape-game-mission-mars.qmd' target='_parent'>Mission: Mars<\/a><\/b>","<b><a href='rooms/the-escape-game-prison-break.qmd' target='_parent'>Prison Break<\/a><\/b>","<b><a href='rooms/the-room-221b-baker-street.qmd' target='_parent'>221B Baker Street<\/a><\/b>","<b><a href='rooms/the-room-gravity.qmd' target='_parent'>Gravity<\/a><\/b>","<b><a href='rooms/wayout-level-1-ravengate-1881.qmd' target='_parent'>Level 1: Ravengate 1881<\/a><\/b>","<b><a href='rooms/wayout-royal-betty.qmd' target='_parent'>Royal Betty<\/a><\/b>"]}}]}
 </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="quarto-dashboard nav-fixed dashboard-fill dashboard-sidebar fullcontent quarto-light">
+
 
 <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Hanno and Fatima’s Escape Rooms</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+<header id="quarto-dashboard-header">
+<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
+  <div class="navbar-container container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    
+
+
+<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-overview" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#overview" data-scrolling="false" href="#overview" aria-controls="overview" aria-selected="true"><span class="nav-link-text">Overview</span></a></li><li class="nav-item" role="presentation"><a id="tab-list" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#list" data-scrolling="false" href="#list" aria-controls="list" aria-selected="false"><span class="nav-link-text">List</span></a></li></ul></div></div></nav>
+</header></header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-layout-custom page-navbar quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill quarto-dashboard-pages">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
+<div class="bslib-grid-item html-fill-item tab-content bslib-grid" data-layout="fill" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div id="overview" class="dashboard-page tab-pane show active html-fill-item html-fill-container dashboard-sidebar-container" data-orientation="columns" aria-labelledby="tab-overview">
+<div class="bslib-sidebar-layout html-fill-item html-fill-container" data-bslib-sidebar-open="desktop" data-bslib-sidebar-init="true" data-bslib-sidebar-border="false" data-bslib-sidebar-border-radius="false"><div class="main html-fill-container html-fill-item"><div class="sidebar-content html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 60fr) minmax(3em, 40fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 50fr) minmax(3em, 50fr) minmax(3em, 50fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb2" data-startfrom="114" data-source-offset="-22"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 113;"><span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> <span class="fu">transpose</span>(data)<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> ({</span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>  <span class="op">...</span>d<span class="op">,</span></span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>  <span class="co">// If already a Date, keep it; if string/number, convert once.</span></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>  <span class="dt">date</span><span class="op">:</span> d<span class="op">.</span><span class="at">date</span> <span class="kw">instanceof</span> <span class="bu">Date</span> <span class="op">?</span> d<span class="op">.</span><span class="at">date</span> <span class="op">:</span> <span class="kw">new</span> <span class="bu">Date</span>(d<span class="op">.</span><span class="at">date</span>)</span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>}))</span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>filtered <span class="op">=</span> rows<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span></span>
+<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>  year_filter<span class="op">.</span><span class="at">beg</span> <span class="op">&lt;=</span> d<span class="op">.</span><span class="at">date</span><span class="op">.</span><span class="fu">getUTCFullYear</span>() <span class="op">&amp;&amp;</span> d<span class="op">.</span><span class="at">date</span><span class="op">.</span><span class="fu">getUTCFullYear</span>() <span class="op">&lt;=</span> year_filter<span class="op">.</span><span class="at">end</span></span>
+<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="st">'100%'</span><span class="op">;</span> </span>
+<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="st">'500px'</span><span class="op">;</span> </span>
+<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>groups <span class="op">=</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>(<span class="kw">new</span> <span class="bu">Set</span>(filtered<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">?.</span>[by_variable])))<span class="op">.</span><span class="fu">sort</span>()</span>
+<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleOrdinal</span>(d3<span class="op">.</span><span class="at">schemeTableau10</span>)<span class="op">.</span><span class="fu">domain</span>(groups)</span>
+<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>roomMap <span class="op">=</span> {</span>
+<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>  <span class="co">// You'll often see Leaflet examples initializing a map like L.map('map'),</span></span>
+<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>  <span class="co">// which tells the library to look for a div with the id 'map' on the page.</span></span>
+<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>  <span class="co">// In Observable, we instead create a div from scratch in this cell, so it's</span></span>
+<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>  <span class="co">// completely self-contained.</span></span>
+<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> container <span class="op">=</span> DOM<span class="op">.</span><span class="fu">element</span>(<span class="st">'div'</span><span class="op">,</span> { <span class="dt">style</span><span class="op">:</span> <span class="vs">`width:</span><span class="sc">${</span>width<span class="sc">}</span><span class="vs">;height:</span><span class="sc">${</span>height<span class="sc">}</span><span class="vs">`</span> })<span class="op">;</span></span>
+<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Note that I'm yielding the container pretty early here: this allows the</span></span>
+<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>  <span class="co">// div to be placed on the page. This is important, because Leaflet uses</span></span>
+<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the div's .offsetWidth and .offsetHeight to size the map. If I were</span></span>
+<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>  <span class="co">// to only return the container at the end of this method, Leaflet might</span></span>
+<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>  <span class="co">// get the wrong idea about the map's size.</span></span>
+<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>  <span class="kw">yield</span> container<span class="op">;</span></span>
+<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Now we create a map object and add a layer to it.</span></span>
+<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> map <span class="op">=</span> L<span class="op">.</span><span class="fu">map</span>(container)<span class="op">;</span></span>
+<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> osmLayer <span class="op">=</span> L<span class="op">.</span><span class="fu">tileLayer</span>(<span class="st">'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png'</span><span class="op">,</span> {</span>
+<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>      <span class="dt">attribution</span><span class="op">:</span> <span class="st">'&amp;copy; &lt;a href="http://osm.org/copyright"&gt;OpenStreetMap&lt;/a&gt; contributors'</span></span>
+<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>  })<span class="op">.</span><span class="fu">addTo</span>(map)<span class="op">;</span></span>
+<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> rooms <span class="op">=</span> L<span class="op">.</span><span class="fu">featureGroup</span>()<span class="op">;</span> </span>
+<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> filtered<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> c <span class="op">=</span> <span class="fu">colors</span>(filtered[i]<span class="op">?.</span>[by_variable])<span class="op">;</span></span>
+<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> room <span class="op">=</span> L<span class="op">.</span><span class="fu">circleMarker</span>([filtered[i]<span class="op">.</span><span class="at">lat</span><span class="op">,</span> filtered[i]<span class="op">.</span><span class="at">long</span>]<span class="op">,</span> {<span class="dt">color</span><span class="op">:</span> c<span class="op">,</span> <span class="dt">fillColor</span><span class="op">:</span>c})<span class="op">;</span> </span>
+<span id="cb2-154"><a href="#cb2-154" aria-hidden="true" tabindex="-1"></a>    room<span class="op">.</span><span class="fu">bindPopup</span>(filtered[i]<span class="op">.</span><span class="at">linked_name</span>)<span class="op">;</span> </span>
+<span id="cb2-155"><a href="#cb2-155" aria-hidden="true" tabindex="-1"></a>    rooms<span class="op">.</span><span class="fu">addLayer</span>(room)<span class="op">;</span></span>
+<span id="cb2-156"><a href="#cb2-156" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-157"><a href="#cb2-157" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-158"><a href="#cb2-158" aria-hidden="true" tabindex="-1"></a>  map<span class="op">.</span><span class="fu">addLayer</span>(rooms)<span class="op">;</span> </span>
+<span id="cb2-159"><a href="#cb2-159" aria-hidden="true" tabindex="-1"></a>  map<span class="op">.</span><span class="fu">fitBounds</span>(rooms<span class="op">.</span><span class="fu">getBounds</span>()<span class="op">,</span> {<span class="dt">maxZoom</span><span class="op">:</span> <span class="dv">7</span>})<span class="op">;</span></span>
+<span id="cb2-160"><a href="#cb2-160" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-2-1" data-nodetype="declaration" class="html-fill-item html-fill-container">
 
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-2-2" data-nodetype="declaration" class="html-fill-item html-fill-container">
 
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-2-3" data-nodetype="declaration" class="html-fill-item html-fill-container">
 
-<section id="overview" class="level1">
-<h1>Overview</h1>
-<section id="section" class="level2 sidebar">
-<h2 class="sidebar anchored" data-anchor-id="section"></h2>
-<div class="cell bg-white text-dark panel-input card bg-light p-2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="88" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 87;"><span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>viewof year_filter <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">form</span>({</span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>  <span class="dt">beg</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">number</span>([<span class="dv">2023</span><span class="op">,</span> <span class="kw">Infinity</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">'From'</span><span class="op">,</span> <span class="dt">placeholder</span><span class="op">:</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">.</span><span class="fu">getFullYear</span>()<span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">.</span><span class="fu">getFullYear</span>()})<span class="op">,</span> </span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>  <span class="dt">end</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">number</span>([<span class="dv">2023</span><span class="op">,</span> <span class="kw">Infinity</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">'to'</span><span class="op">,</span> <span class="dt">placeholder</span><span class="op">:</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">.</span><span class="fu">getFullYear</span>()<span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">.</span><span class="fu">getFullYear</span>()})<span class="op">,</span> </span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>}<span class="op">,</span> </span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>  <span class="dt">template</span><span class="op">:</span> (inputs) <span class="kw">=&gt;</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`&lt;div class="row justify-content-between no-gutters"&gt;</span></span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div class="col"&gt;</span><span class="sc">${</span>inputs<span class="op">.</span><span class="at">beg</span><span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div class="col"&gt;</span><span class="sc">${</span>inputs<span class="op">.</span><span class="at">end</span><span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;`</span></span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span> </span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>viewof by_variable <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(<span class="kw">new</span> <span class="bu">Map</span>([[<span class="st">'Country'</span><span class="op">,</span> <span class="st">'country'</span>]<span class="op">,</span> [<span class="st">'Rating'</span><span class="op">,</span> <span class="st">'rating'</span>]<span class="op">,</span> [<span class="st">'Year'</span><span class="op">,</span> <span class="st">'year'</span>]<span class="op">,</span> [<span class="st">'Company'</span><span class="op">,</span> <span class="st">'company'</span>]<span class="op">,</span> [<span class="st">'Completion time'</span><span class="op">,</span> <span class="st">'time_min'</span>]])<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="st">'country'</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">'By'</span>})<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-2-4" data-nodetype="declaration" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-2-5" data-nodetype="declaration" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-2-6" data-nodetype="declaration" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-2-7" data-nodetype="declaration" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card vh-25 html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="cell card-body html-fill-item html-fill-container">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb3" data-startfrom="168" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 167;"><span id="cb3-168"><a href="#cb3-168" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="font-size: 1.5rem; text-align: center; margin: 0; color: #0072B2;"&gt;Number of rooms&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-3-1" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb4" data-startfrom="169" data-source-offset="-104"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 168;"><span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="font-size: 2.5rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;"&gt;</span><span class="sc">${</span>filtered<span class="op">.</span><span class="at">length</span><span class="sc">}</span><span class="vs">&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-3-2" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card vh-25 html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="cell card-body html-fill-item html-fill-container">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb5" data-startfrom="176" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 175;"><span id="cb5-176"><a href="#cb5-176" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="font-size: 1.25rem; text-align: center; margin: 0; color: #0072B2;"&gt;Average number of hints&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-4-1" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb6" data-startfrom="177" data-source-offset="-112"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 176;"><span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="font-size: 2.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;"&gt;</span><span class="sc">${</span>d3<span class="op">.</span><span class="fu">mean</span>(filtered<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">clues</span>)<span class="op">?.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs">&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-4-2" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card vh-25 html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="cell card-body html-fill-item html-fill-container">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb7" data-startfrom="186" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 185;"><span id="cb7-186"><a href="#cb7-186" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="font-size: 1.25rem; text-align: center; margin: 0; color: #0072B2;"&gt;Average time&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-5-1" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb8" data-startfrom="187" data-source-offset="-102"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 186;"><span id="cb8-187"><a href="#cb8-187" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="font-size: 2.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;"&gt;</span><span class="sc">${</span>d3<span class="op">.</span><span class="fu">mean</span>(filtered<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">time_min</span>)<span class="op">?.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs"> min&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-5-2" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb9" data-startfrom="188" data-source-offset="-263"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 187;"><span id="cb9-188"><a href="#cb9-188" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="font-size: 1.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;"&gt;(</span><span class="sc">${</span>d3<span class="op">.</span><span class="fu">mean</span>(filtered<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">time_left</span>)<span class="op">?.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs"> min in advance)&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-5-3" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card vh-25 html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="cell card-body html-fill-item html-fill-container">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb10" data-startfrom="195" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 194;"><span id="cb10-195"><a href="#cb10-195" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="font-size: 1.25rem; text-align: center; margin: 0; color: #0072B2;"&gt;Best time&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-6-1" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb11" data-startfrom="196" data-source-offset="-98"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 195;"><span id="cb11-196"><a href="#cb11-196" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="font-size: 2.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;"&gt;</span><span class="sc">${</span>d3<span class="op">.</span><span class="fu">min</span>(filtered<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">time_min</span>)<span class="op">?.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs"> min&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-6-2" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb12" data-startfrom="197" data-source-offset="-258"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 196;"><span id="cb12-197"><a href="#cb12-197" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="font-size: 1.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;"&gt;(</span><span class="sc">${</span>d3<span class="op">.</span><span class="fu">max</span>(filtered<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">time_left</span>)<span class="op">?.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs"> min in advance)&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+<div id="ojs-cell-6-3" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div><div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="cell card-body html-fill-item html-fill-container">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb13" data-startfrom="204" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 203;"><span id="cb13-204"><a href="#cb13-204" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">rectY</span>(filtered<span class="op">,</span> </span>
+<span id="cb13-205"><a href="#cb13-205" aria-hidden="true" tabindex="-1"></a>  Plot<span class="op">.</span><span class="fu">binX</span>(</span>
+<span id="cb13-206"><a href="#cb13-206" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">y</span><span class="op">:</span> <span class="st">"count"</span>}<span class="op">,</span> </span>
+<span id="cb13-207"><a href="#cb13-207" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">x</span><span class="op">:</span> <span class="st">"date"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> by_variable<span class="op">,</span> <span class="dt">thresholds</span><span class="op">:</span> <span class="st">'auto'</span>}</span>
+<span id="cb13-208"><a href="#cb13-208" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb13-209"><a href="#cb13-209" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb13-210"><a href="#cb13-210" aria-hidden="true" tabindex="-1"></a>    <span class="dt">color</span><span class="op">:</span> {<span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
+<span id="cb13-211"><a href="#cb13-211" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb13-212"><a href="#cb13-212" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">frame</span>()<span class="op">,</span></span>
+<span id="cb13-213"><a href="#cb13-213" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb13-214"><a href="#cb13-214" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb13-215"><a href="#cb13-215" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div id="ojs-cell-7" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<div class="cell card-body html-fill-item html-fill-container">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb14" data-startfrom="220" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 219;"><span id="cb14-220"><a href="#cb14-220" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">lineY</span>(filtered<span class="op">,</span> </span>
+<span id="cb14-221"><a href="#cb14-221" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">binX</span>(</span>
+<span id="cb14-222"><a href="#cb14-222" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">y</span><span class="op">:</span> <span class="st">"mean"</span><span class="op">,</span> <span class="dt">interval</span><span class="op">:</span> d3<span class="op">.</span><span class="at">timeMonth</span>}<span class="op">,</span> </span>
+<span id="cb14-223"><a href="#cb14-223" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"date"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"clues"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">3</span>}</span>
+<span id="cb14-224"><a href="#cb14-224" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb14-225"><a href="#cb14-225" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-226"><a href="#cb14-226" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb14-227"><a href="#cb14-227" aria-hidden="true" tabindex="-1"></a>    <span class="dt">color</span><span class="op">:</span> {<span class="dt">legend</span><span class="op">:</span> <span class="kw">false</span>}<span class="op">,</span></span>
+<span id="cb14-228"><a href="#cb14-228" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"# of hints"</span>}<span class="op">,</span> </span>
+<span id="cb14-229"><a href="#cb14-229" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb14-230"><a href="#cb14-230" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">frame</span>()<span class="op">,</span></span>
+<span id="cb14-231"><a href="#cb14-231" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">dot</span>(filtered<span class="op">,</span> </span>
+<span id="cb14-232"><a href="#cb14-232" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"date"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"clues"</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> by_variable<span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> by_variable}</span>
+<span id="cb14-233"><a href="#cb14-233" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb14-234"><a href="#cb14-234" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb14-235"><a href="#cb14-235" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-236"><a href="#cb14-236" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div id="ojs-cell-8" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<div class="cell card-body html-fill-item html-fill-container">
+<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code hidden html-fill-item html-fill-container" id="cb15" data-startfrom="240" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 239;"><span id="cb15-240"><a href="#cb15-240" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">lineY</span>(filtered<span class="op">,</span> </span>
+<span id="cb15-241"><a href="#cb15-241" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">binX</span>(</span>
+<span id="cb15-242"><a href="#cb15-242" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">y</span><span class="op">:</span> <span class="st">"mean"</span><span class="op">,</span> <span class="dt">interval</span><span class="op">:</span> d3<span class="op">.</span><span class="at">timeMonth</span>}<span class="op">,</span> </span>
+<span id="cb15-243"><a href="#cb15-243" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"date"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"time_min"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">3</span>}</span>
+<span id="cb15-244"><a href="#cb15-244" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb15-245"><a href="#cb15-245" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb15-246"><a href="#cb15-246" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">plot</span>({</span>
+<span id="cb15-247"><a href="#cb15-247" aria-hidden="true" tabindex="-1"></a>    <span class="dt">color</span><span class="op">:</span> {<span class="dt">legend</span><span class="op">:</span> <span class="kw">false</span>}<span class="op">,</span></span>
+<span id="cb15-248"><a href="#cb15-248" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Completion time (min)"</span>}<span class="op">,</span> </span>
+<span id="cb15-249"><a href="#cb15-249" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
+<span id="cb15-250"><a href="#cb15-250" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">frame</span>()<span class="op">,</span></span>
+<span id="cb15-251"><a href="#cb15-251" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">dot</span>(filtered<span class="op">,</span> </span>
+<span id="cb15-252"><a href="#cb15-252" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"date"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"time_min"</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> by_variable<span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> by_variable}</span>
+<span id="cb15-253"><a href="#cb15-253" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb15-254"><a href="#cb15-254" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb15-255"><a href="#cb15-255" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb15-256"><a href="#cb15-256" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display html-fill-item html-fill-container">
+<div id="ojs-cell-9" data-nodetype="expression" class="html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+</div></div><aside id="bslib-sidebar-1" class="sidebar html-fill-container html-fill-item"><div class="html-fill-item html-fill-container">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb1" data-startfrom="95" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 94;"><span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>viewof year_filter <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">form</span>({</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>  <span class="dt">beg</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">number</span>([<span class="dv">2023</span><span class="op">,</span> <span class="kw">Infinity</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">'From'</span><span class="op">,</span> <span class="dt">placeholder</span><span class="op">:</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">.</span><span class="fu">getFullYear</span>()<span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">.</span><span class="fu">getFullYear</span>()})<span class="op">,</span> </span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>  <span class="dt">end</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">number</span>([<span class="dv">2023</span><span class="op">,</span> <span class="kw">Infinity</span>]<span class="op">,</span> {<span class="dt">step</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">'to'</span><span class="op">,</span> <span class="dt">placeholder</span><span class="op">:</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">.</span><span class="fu">getFullYear</span>()<span class="op">,</span> <span class="dt">value</span><span class="op">:</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">.</span><span class="fu">getFullYear</span>()})<span class="op">,</span> </span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>}<span class="op">,</span> </span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>  <span class="dt">template</span><span class="op">:</span> (inputs) <span class="kw">=&gt;</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`&lt;div class="row justify-content-between no-gutters"&gt;</span></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div class="col"&gt;</span><span class="sc">${</span>inputs<span class="op">.</span><span class="at">beg</span><span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div class="col"&gt;</span><span class="sc">${</span>inputs<span class="op">.</span><span class="at">end</span><span class="sc">}</span><span class="vs">&lt;/div&gt;</span></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;`</span></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span> </span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>viewof by_variable <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">select</span>(<span class="kw">new</span> <span class="bu">Map</span>([[<span class="st">'Country'</span><span class="op">,</span> <span class="st">'country'</span>]<span class="op">,</span> [<span class="st">'Rating'</span><span class="op">,</span> <span class="st">'rating'</span>]<span class="op">,</span> [<span class="st">'Year'</span><span class="op">,</span> <span class="st">'year'</span>]<span class="op">,</span> [<span class="st">'Company'</span><span class="op">,</span> <span class="st">'company'</span>]<span class="op">,</span> [<span class="st">'Completion time'</span><span class="op">,</span> <span class="st">'time_min'</span>]])<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="st">'country'</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="st">'By'</span>})<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -219,273 +539,24 @@ window.Quarto = {
 </div>
 </div>
 </div>
-</div>
-</section>
-<section id="column" class="level2" width="60%">
-<h2 width="60%" class="anchored" data-anchor-id="column">Column</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb2" data-startfrom="107" data-source-offset="-22"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 106;"><span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> <span class="fu">transpose</span>(data)<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> ({</span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>  <span class="op">...</span>d<span class="op">,</span></span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>  <span class="co">// If already a Date, keep it; if string/number, convert once.</span></span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>  <span class="dt">date</span><span class="op">:</span> d<span class="op">.</span><span class="at">date</span> <span class="kw">instanceof</span> <span class="bu">Date</span> <span class="op">?</span> d<span class="op">.</span><span class="at">date</span> <span class="op">:</span> <span class="kw">new</span> <span class="bu">Date</span>(d<span class="op">.</span><span class="at">date</span>)</span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>}))</span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a>filtered <span class="op">=</span> rows<span class="op">.</span><span class="fu">filter</span>(d <span class="kw">=&gt;</span></span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a>  year_filter<span class="op">.</span><span class="at">beg</span> <span class="op">&lt;=</span> d<span class="op">.</span><span class="at">date</span><span class="op">.</span><span class="fu">getUTCFullYear</span>() <span class="op">&amp;&amp;</span> d<span class="op">.</span><span class="at">date</span><span class="op">.</span><span class="fu">getUTCFullYear</span>() <span class="op">&lt;=</span> year_filter<span class="op">.</span><span class="at">end</span></span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="st">'100%'</span><span class="op">;</span> </span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="st">'500px'</span><span class="op">;</span> </span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>groups <span class="op">=</span> <span class="bu">Array</span><span class="op">.</span><span class="fu">from</span>(<span class="kw">new</span> <span class="bu">Set</span>(filtered<span class="op">.</span><span class="fu">map</span>(d <span class="kw">=&gt;</span> d<span class="op">?.</span>[by_variable])))<span class="op">.</span><span class="fu">sort</span>()</span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleOrdinal</span>(d3<span class="op">.</span><span class="at">schemeTableau10</span>)<span class="op">.</span><span class="fu">domain</span>(groups)</span>
-<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>roomMap <span class="op">=</span> {</span>
-<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>  <span class="co">// You'll often see Leaflet examples initializing a map like L.map('map'),</span></span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>  <span class="co">// which tells the library to look for a div with the id 'map' on the page.</span></span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>  <span class="co">// In Observable, we instead create a div from scratch in this cell, so it's</span></span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>  <span class="co">// completely self-contained.</span></span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> container <span class="op">=</span> DOM<span class="op">.</span><span class="fu">element</span>(<span class="st">'div'</span><span class="op">,</span> { <span class="dt">style</span><span class="op">:</span> <span class="vs">`width:</span><span class="sc">${</span>width<span class="sc">}</span><span class="vs">;height:</span><span class="sc">${</span>height<span class="sc">}</span><span class="vs">`</span> })<span class="op">;</span></span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Note that I'm yielding the container pretty early here: this allows the</span></span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>  <span class="co">// div to be placed on the page. This is important, because Leaflet uses</span></span>
-<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>  <span class="co">// the div's .offsetWidth and .offsetHeight to size the map. If I were</span></span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a>  <span class="co">// to only return the container at the end of this method, Leaflet might</span></span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a>  <span class="co">// get the wrong idea about the map's size.</span></span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>  <span class="kw">yield</span> container<span class="op">;</span></span>
-<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Now we create a map object and add a layer to it.</span></span>
-<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> map <span class="op">=</span> L<span class="op">.</span><span class="fu">map</span>(container)<span class="op">;</span></span>
-<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> osmLayer <span class="op">=</span> L<span class="op">.</span><span class="fu">tileLayer</span>(<span class="st">'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png'</span><span class="op">,</span> {</span>
-<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>      <span class="dt">attribution</span><span class="op">:</span> <span class="st">'&amp;copy; &lt;a href="http://osm.org/copyright"&gt;OpenStreetMap&lt;/a&gt; contributors'</span></span>
-<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>  })<span class="op">.</span><span class="fu">addTo</span>(map)<span class="op">;</span></span>
-<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a>  <span class="kw">var</span> rooms <span class="op">=</span> L<span class="op">.</span><span class="fu">featureGroup</span>()<span class="op">;</span> </span>
-<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> filtered<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb2-145"><a href="#cb2-145" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> c <span class="op">=</span> <span class="fu">colors</span>(filtered[i]<span class="op">?.</span>[by_variable])<span class="op">;</span></span>
-<span id="cb2-146"><a href="#cb2-146" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> room <span class="op">=</span> L<span class="op">.</span><span class="fu">circleMarker</span>([filtered[i]<span class="op">.</span><span class="at">lat</span><span class="op">,</span> filtered[i]<span class="op">.</span><span class="at">long</span>]<span class="op">,</span> {<span class="dt">color</span><span class="op">:</span> c<span class="op">,</span> <span class="dt">fillColor</span><span class="op">:</span>c})<span class="op">;</span> </span>
-<span id="cb2-147"><a href="#cb2-147" aria-hidden="true" tabindex="-1"></a>    room<span class="op">.</span><span class="fu">bindPopup</span>(filtered[i]<span class="op">.</span><span class="at">linked_name</span>)<span class="op">;</span> </span>
-<span id="cb2-148"><a href="#cb2-148" aria-hidden="true" tabindex="-1"></a>    rooms<span class="op">.</span><span class="fu">addLayer</span>(room)<span class="op">;</span></span>
-<span id="cb2-149"><a href="#cb2-149" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-150"><a href="#cb2-150" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-151"><a href="#cb2-151" aria-hidden="true" tabindex="-1"></a>  map<span class="op">.</span><span class="fu">addLayer</span>(rooms)<span class="op">;</span> </span>
-<span id="cb2-152"><a href="#cb2-152" aria-hidden="true" tabindex="-1"></a>  map<span class="op">.</span><span class="fu">fitBounds</span>(rooms<span class="op">.</span><span class="fu">getBounds</span>()<span class="op">,</span> {<span class="dt">maxZoom</span><span class="op">:</span> <span class="dv">7</span>})<span class="op">;</span></span>
-<span id="cb2-153"><a href="#cb2-153" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-2-1" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-2-2" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-2-3" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-2-4" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-2-5" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-2-6" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-2-7" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-</div>
-<section id="row" class="level3" height="50%">
-<h3 height="50%" class="anchored" data-anchor-id="row">Row</h3>
-<div class="card vh-25">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb3" data-startfrom="161" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 160;"><span id="cb3-161"><a href="#cb3-161" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="font-size: 1.5rem; text-align: center; margin: 0; color: #0072B2;"&gt;Number of rooms&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-3-1" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb4" data-startfrom="162" data-source-offset="-104"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 161;"><span id="cb4-162"><a href="#cb4-162" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="font-size: 2.5rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;"&gt;</span><span class="sc">${</span>filtered<span class="op">.</span><span class="at">length</span><span class="sc">}</span><span class="vs">&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-3-2" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="card vh-25">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb5" data-startfrom="170" data-source-offset="-1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 169;"><span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="font-size: 1.25rem; text-align: center; margin: 0; color: #0072B2;"&gt;Average time&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-1" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb6" data-startfrom="171" data-source-offset="-102"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 170;"><span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="font-size: 2.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;"&gt;</span><span class="sc">${</span>d3<span class="op">.</span><span class="fu">mean</span>(filtered<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">time_min</span>)<span class="op">?.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs"> min&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-4-2" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="row-1" class="level3" height="50%">
-<h3 height="50%" class="anchored" data-anchor-id="row-1">Row</h3>
-<div class="card vh-25">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb7" data-startfrom="180" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 179;"><span id="cb7-180"><a href="#cb7-180" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="font-size: 1.25rem; text-align: center; margin: 0; color: #0072B2;"&gt;Best time&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-5-1" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb8" data-startfrom="181" data-source-offset="-98"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 180;"><span id="cb8-181"><a href="#cb8-181" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="font-size: 2.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;"&gt;</span><span class="sc">${</span>d3<span class="op">.</span><span class="fu">min</span>(filtered<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">time_min</span>)<span class="op">?.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs"> min&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-5-2" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="card vh-25">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb9" data-startfrom="187" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 186;"><span id="cb9-187"><a href="#cb9-187" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="font-size: 1.25rem; text-align: center; margin: 0; color: #0072B2;"&gt;Average number of hints&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-6-1" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb10" data-startfrom="188" data-source-offset="-112"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 187;"><span id="cb10-188"><a href="#cb10-188" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;p style="font-size: 2.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;"&gt;</span><span class="sc">${</span>d3<span class="op">.</span><span class="fu">mean</span>(filtered<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">clues</span>)<span class="op">?.</span><span class="fu">toFixed</span>(<span class="dv">1</span>)<span class="sc">}</span><span class="vs">&lt;/p&gt;`</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-6-2" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="column-1" class="level2" width="40%">
-<h2 width="40%" class="anchored" data-anchor-id="column-1">Column</h2>
-<div class="card">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb11" data-startfrom="195" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 194;"><span id="cb11-195"><a href="#cb11-195" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">rectY</span>(filtered<span class="op">,</span> </span>
-<span id="cb11-196"><a href="#cb11-196" aria-hidden="true" tabindex="-1"></a>  Plot<span class="op">.</span><span class="fu">binX</span>(</span>
-<span id="cb11-197"><a href="#cb11-197" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">y</span><span class="op">:</span> <span class="st">"count"</span>}<span class="op">,</span> </span>
-<span id="cb11-198"><a href="#cb11-198" aria-hidden="true" tabindex="-1"></a>    {<span class="dt">x</span><span class="op">:</span> <span class="st">"date"</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> by_variable<span class="op">,</span> <span class="dt">thresholds</span><span class="op">:</span> <span class="st">'auto'</span>}</span>
-<span id="cb11-199"><a href="#cb11-199" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb11-200"><a href="#cb11-200" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb11-201"><a href="#cb11-201" aria-hidden="true" tabindex="-1"></a>    <span class="dt">color</span><span class="op">:</span> {<span class="dt">legend</span><span class="op">:</span> <span class="kw">true</span>}<span class="op">,</span></span>
-<span id="cb11-202"><a href="#cb11-202" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb11-203"><a href="#cb11-203" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">frame</span>()<span class="op">,</span></span>
-<span id="cb11-204"><a href="#cb11-204" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb11-205"><a href="#cb11-205" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb11-206"><a href="#cb11-206" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-7" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb12" data-startfrom="211" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 210;"><span id="cb12-211"><a href="#cb12-211" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">lineY</span>(filtered<span class="op">,</span> </span>
-<span id="cb12-212"><a href="#cb12-212" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">binX</span>(</span>
-<span id="cb12-213"><a href="#cb12-213" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">y</span><span class="op">:</span> <span class="st">"mean"</span><span class="op">,</span> <span class="dt">interval</span><span class="op">:</span> d3<span class="op">.</span><span class="at">timeMonth</span>}<span class="op">,</span> </span>
-<span id="cb12-214"><a href="#cb12-214" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"date"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"clues"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">3</span>}</span>
-<span id="cb12-215"><a href="#cb12-215" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-216"><a href="#cb12-216" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb12-217"><a href="#cb12-217" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb12-218"><a href="#cb12-218" aria-hidden="true" tabindex="-1"></a>    <span class="dt">color</span><span class="op">:</span> {<span class="dt">legend</span><span class="op">:</span> <span class="kw">false</span>}<span class="op">,</span></span>
-<span id="cb12-219"><a href="#cb12-219" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"# of hints"</span>}<span class="op">,</span> </span>
-<span id="cb12-220"><a href="#cb12-220" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb12-221"><a href="#cb12-221" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">frame</span>()<span class="op">,</span></span>
-<span id="cb12-222"><a href="#cb12-222" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">dot</span>(filtered<span class="op">,</span> </span>
-<span id="cb12-223"><a href="#cb12-223" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"date"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"clues"</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> by_variable<span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> by_variable}</span>
-<span id="cb12-224"><a href="#cb12-224" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-225"><a href="#cb12-225" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb12-226"><a href="#cb12-226" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb12-227"><a href="#cb12-227" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-8" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code hidden" id="cb13" data-startfrom="231" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 230;"><span id="cb13-231"><a href="#cb13-231" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">lineY</span>(filtered<span class="op">,</span> </span>
-<span id="cb13-232"><a href="#cb13-232" aria-hidden="true" tabindex="-1"></a>    Plot<span class="op">.</span><span class="fu">binX</span>(</span>
-<span id="cb13-233"><a href="#cb13-233" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">y</span><span class="op">:</span> <span class="st">"mean"</span><span class="op">,</span> <span class="dt">interval</span><span class="op">:</span> d3<span class="op">.</span><span class="at">timeMonth</span>}<span class="op">,</span> </span>
-<span id="cb13-234"><a href="#cb13-234" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"date"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"time_min"</span><span class="op">,</span> <span class="dt">strokeWidth</span><span class="op">:</span> <span class="dv">3</span>}</span>
-<span id="cb13-235"><a href="#cb13-235" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb13-236"><a href="#cb13-236" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb13-237"><a href="#cb13-237" aria-hidden="true" tabindex="-1"></a>  <span class="op">.</span><span class="fu">plot</span>({</span>
-<span id="cb13-238"><a href="#cb13-238" aria-hidden="true" tabindex="-1"></a>    <span class="dt">color</span><span class="op">:</span> {<span class="dt">legend</span><span class="op">:</span> <span class="kw">false</span>}<span class="op">,</span></span>
-<span id="cb13-239"><a href="#cb13-239" aria-hidden="true" tabindex="-1"></a>    <span class="dt">y</span><span class="op">:</span> {<span class="dt">label</span><span class="op">:</span> <span class="st">"Completion time (min)"</span>}<span class="op">,</span> </span>
-<span id="cb13-240"><a href="#cb13-240" aria-hidden="true" tabindex="-1"></a>    <span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb13-241"><a href="#cb13-241" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">frame</span>()<span class="op">,</span></span>
-<span id="cb13-242"><a href="#cb13-242" aria-hidden="true" tabindex="-1"></a>      Plot<span class="op">.</span><span class="fu">dot</span>(filtered<span class="op">,</span> </span>
-<span id="cb13-243"><a href="#cb13-243" aria-hidden="true" tabindex="-1"></a>      {<span class="dt">x</span><span class="op">:</span> <span class="st">"date"</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> <span class="st">"time_min"</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> by_variable<span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> by_variable}</span>
-<span id="cb13-244"><a href="#cb13-244" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb13-245"><a href="#cb13-245" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb13-246"><a href="#cb13-246" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb13-247"><a href="#cb13-247" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div id="ojs-cell-9" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="list" class="level1">
-<h1>List</h1>
-<div id="listing-room-table" class="quarto-listing quarto-listing-container-table">
-<div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
+</div></aside>
+<button class="collapse-toggle" type="button" title="Toggle sidebar" aria-expanded="true" aria-controls="bslib-sidebar-1">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 16 16" class="bi bi-chevron-left collapse-icon" style="fill:currentColor;" aria-hidden="true" role="img">
+      <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"></path>
+    </svg>
+</button>
+<script data-bslib-sidebar-init="">
+bslib.Sidebar.initCollapsibleAll()
+</script>
+</div>
+</div><div id="list" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="columns" aria-labelledby="tab-list">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr);
+grid-auto-rows: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div id="listing-room-table" class="quarto-listing quarto-listing-container-table html-fill-item html-fill-container">
+<div class="listing-actions-group html-fill-item html-fill-container">
+   <div class="input-group input-group-sm quarto-listing-sort html-fill-item html-fill-container">
     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
     <select id="listing-room-table-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-room-table'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
       <option value="" disabled="" selected="" hidden="">Order By</option>
@@ -513,623 +584,46 @@ window.Quarto = {
       </option>
     </select>
   </div>
-    <div class="input-group input-group-sm quarto-listing-filter">
+    <div class="input-group input-group-sm quarto-listing-filter html-fill-item html-fill-container">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<table class="quarto-listing-table table">
+
+<table class="quarto-listing-table table caption-top">
 <thead>
-<tr>
-
-<th>
-<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
-</th>
-
-<th>
-<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Room</a>
-</th>
-
-<th>
-<a class="sort" data-sort="listing-rating" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Rating</a>
-</th>
-
-<th>
-<a class="sort" data-sort="listing-city" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">City</a>
-</th>
-
-<th>
-<a class="sort" data-sort="listing-country" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Country</a>
-</th>
-
-<th>
-Players
-</th>
-
-<th>
-<a class="sort" data-sort="listing-completion-time" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Completion time</a>
-</th>
-
-<th>
-Hints used
-</th>
-
+<tr class="header">
+<th data-quarto-table-cell-role="th"><span class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</span></th>
+<th data-quarto-table-cell-role="th"><span class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Room</span></th>
+<th data-quarto-table-cell-role="th"><span class="sort" data-sort="listing-rating" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Rating</span></th>
+<th data-quarto-table-cell-role="th"><span class="sort" data-sort="listing-city" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">City</span></th>
+<th data-quarto-table-cell-role="th"><span class="sort" data-sort="listing-country" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Country</span></th>
+<th data-quarto-table-cell-role="th">Players</th>
+<th data-quarto-table-cell-role="th"><span class="sort" data-sort="listing-completion-time" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Completion time</span></th>
+<th data-quarto-table-cell-role="th">Hints used</th>
 </tr>
 </thead>
 <tbody class="list">
-
-<tr data-index="0" data-listing-date-sort="1778406300000" data-listing-file-modified-sort="1778483273283" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="91" data-listing-title-sort="Viking Exhibition" data-listing-filename-sort="getaway-room-viking-exhibition.qmd">
-<td>
-<span class="listing-date">May 10, 2026</span>
-</td>
-<td>
-<a href="./rooms/getaway-room-viking-exhibition.html" class="title listing-title">Viking Exhibition</a>
-</td>
-<td>
-<span class="listing-rating">5</span>
-</td>
-<td>
-<span class="listing-city">Hämeenlinna</span>
-</td>
-<td>
-<span class="listing-country">Finland</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima</span>
-</td>
-<td>
-<span class="listing-completion-time">60 min</span>
-</td>
-<td>
-<span class="listing-clues">3</span>
-</td>
-
-</tr>
-
-<tr data-index="1" data-listing-date-sort="1775385000000" data-listing-file-modified-sort="1778482407997" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="113" data-listing-title-sort="Mansenauts" data-listing-filename-sort="getaway-room-mansenautit.qmd">
-<td>
-<span class="listing-date">Apr 5, 2026</span>
-</td>
-<td>
-<a href="./rooms/getaway-room-mansenautit.html" class="title listing-title">Mansenauts</a>
-</td>
-<td>
-<span class="listing-rating">4</span>
-</td>
-<td>
-<span class="listing-city">Tampere</span>
-</td>
-<td>
-<span class="listing-country">Finland</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima</span>
-</td>
-<td>
-<span class="listing-completion-time">51 min 32 sec</span>
-</td>
-<td>
-<span class="listing-clues">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="2" data-listing-date-sort="1773567000000" data-listing-file-modified-sort="1773645481598" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="104" data-listing-title-sort="Gravity" data-listing-filename-sort="the-room-gravity.qmd">
-<td>
-<span class="listing-date">Mar 15, 2026</span>
-</td>
-<td>
-<a href="./rooms/the-room-gravity.html" class="title listing-title">Gravity</a>
-</td>
-<td>
-<span class="listing-rating">4</span>
-</td>
-<td>
-<span class="listing-city">Tallinn</span>
-</td>
-<td>
-<span class="listing-country">Estonia</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima, Heiko</span>
-</td>
-<td>
-<span class="listing-completion-time">45 min</span>
-</td>
-<td>
-<span class="listing-clues">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="3" data-listing-date-sort="1771756200000" data-listing-file-modified-sort="1771773808074" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="311" data-listing-title-sort="Indi Joneson: Relictum" data-listing-filename-sort="secret-escape-game-relictum.qmd">
-<td>
-<span class="listing-date">Feb 22, 2026</span>
-</td>
-<td>
-<a href="./rooms/secret-escape-game-relictum.html" class="title listing-title">Indi Joneson: Relictum</a>
-</td>
-<td>
-<span class="listing-rating">3</span>
-</td>
-<td>
-<span class="listing-city">Frankfurt</span>
-</td>
-<td>
-<span class="listing-country">Germany</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima</span>
-</td>
-<td>
-<span class="listing-completion-time">56 min</span>
-</td>
-<td>
-<span class="listing-clues">4</span>
-</td>
-
-</tr>
-
-<tr data-index="4" data-listing-date-sort="1770390300000" data-listing-file-modified-sort="1775395531449" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="76" data-listing-title-sort="The Extremist" data-listing-filename-sort="makeitout-the-extremist.qmd">
-<td>
-<span class="listing-date">Feb 6, 2026</span>
-</td>
-<td>
-<a href="./rooms/makeitout-the-extremist.html" class="title listing-title">The Extremist</a>
-</td>
-<td>
-<span class="listing-rating">3</span>
-</td>
-<td>
-<span class="listing-city">Vaasa</span>
-</td>
-<td>
-<span class="listing-country">Finland</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima, Aino, Samuli</span>
-</td>
-<td>
-<span class="listing-completion-time">59 min</span>
-</td>
-<td>
-<span class="listing-clues">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="5" data-listing-date-sort="1770388200000" data-listing-file-modified-sort="1775395510764" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="43" data-listing-title-sort="Return of the Pirates of the Future" data-listing-filename-sort="makeitout-the-pirates.qmd">
-<td>
-<span class="listing-date">Feb 6, 2026</span>
-</td>
-<td>
-<a href="./rooms/makeitout-the-pirates.html" class="title listing-title">Return of the Pirates of the Future</a>
-</td>
-<td>
-<span class="listing-rating">4</span>
-</td>
-<td>
-<span class="listing-city">Vaasa</span>
-</td>
-<td>
-<span class="listing-country">Finland</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima, Aino, Samuli</span>
-</td>
-<td>
-<span class="listing-completion-time">32 min</span>
-</td>
-<td>
-<span class="listing-clues">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="6" data-listing-date-sort="1755103500000" data-listing-file-modified-sort="1771770945383" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="87" data-listing-title-sort="Der letzte Seelenwanderer" data-listing-filename-sort="room-fox-der-letzte-seelenwanderer.qmd">
-<td>
-<span class="listing-date">Aug 13, 2025</span>
-</td>
-<td>
-<a href="./rooms/room-fox-der-letzte-seelenwanderer.html" class="title listing-title">Der letzte Seelenwanderer</a>
-</td>
-<td>
-<span class="listing-rating">3</span>
-</td>
-<td>
-<span class="listing-city">Frankfurt am Main</span>
-</td>
-<td>
-<span class="listing-country">Germany</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima</span>
-</td>
-<td>
-<span class="listing-completion-time">&nbsp;</span>
-</td>
-<td>
-<span class="listing-clues">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="7" data-listing-date-sort="1754812800000" data-listing-file-modified-sort="1771770980268" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="64" data-listing-title-sort="Star of the Theater" data-listing-filename-sort="getaway-room-star-of-theatre.qmd">
-<td>
-<span class="listing-date">Aug 10, 2025</span>
-</td>
-<td>
-<a href="./rooms/getaway-room-star-of-theatre.html" class="title listing-title">Star of the Theater</a>
-</td>
-<td>
-<span class="listing-rating">4</span>
-</td>
-<td>
-<span class="listing-city">Tampere</span>
-</td>
-<td>
-<span class="listing-country">Finland</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima</span>
-</td>
-<td>
-<span class="listing-completion-time">&nbsp;</span>
-</td>
-<td>
-<span class="listing-clues">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="8" data-listing-date-sort="1751554800000" data-listing-file-modified-sort="1771770999875" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="87" data-listing-title-sort="Näsinneula" data-listing-filename-sort="getaway-room-nasinneula.qmd">
-<td>
-<span class="listing-date">Jul 3, 2025</span>
-</td>
-<td>
-<a href="./rooms/getaway-room-nasinneula.html" class="title listing-title">Näsinneula</a>
-</td>
-<td>
-<span class="listing-rating">2</span>
-</td>
-<td>
-<span class="listing-city">Tampere</span>
-</td>
-<td>
-<span class="listing-country">Finland</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima, Aisha, Bakosi</span>
-</td>
-<td>
-<span class="listing-completion-time">&nbsp;</span>
-</td>
-<td>
-<span class="listing-clues">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="9" data-listing-date-sort="1736615700000" data-listing-file-modified-sort="1771770952852" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="52" data-listing-title-sort="Out of Mars" data-listing-filename-sort="room-escape-finlayson-out-of-mars.qmd">
-<td>
-<span class="listing-date">Jan 11, 2025</span>
-</td>
-<td>
-<a href="./rooms/room-escape-finlayson-out-of-mars.html" class="title listing-title">Out of Mars</a>
-</td>
-<td>
-<span class="listing-rating">1</span>
-</td>
-<td>
-<span class="listing-city">Tampere</span>
-</td>
-<td>
-<span class="listing-country">Finland</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima</span>
-</td>
-<td>
-<span class="listing-completion-time">&nbsp;</span>
-</td>
-<td>
-<span class="listing-clues">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="10" data-listing-date-sort="1729322100000" data-listing-file-modified-sort="1771770939291" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="48" data-listing-title-sort="Der Wald" data-listing-filename-sort="room-fox-der-wald.qmd">
-<td>
-<span class="listing-date">Oct 19, 2024</span>
-</td>
-<td>
-<a href="./rooms/room-fox-der-wald.html" class="title listing-title">Der Wald</a>
-</td>
-<td>
-<span class="listing-rating">4</span>
-</td>
-<td>
-<span class="listing-city">Frankfurt am Main</span>
-</td>
-<td>
-<span class="listing-country">Germany</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima</span>
-</td>
-<td>
-<span class="listing-completion-time">&nbsp;</span>
-</td>
-<td>
-<span class="listing-clues">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="11" data-listing-date-sort="1728809100000" data-listing-file-modified-sort="1771770974016" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="61" data-listing-title-sort="Steampunk Adventure" data-listing-filename-sort="great-escape-steam-punk-adventure.qmd">
-<td>
-<span class="listing-date">Oct 13, 2024</span>
-</td>
-<td>
-<a href="./rooms/great-escape-steam-punk-adventure.html" class="title listing-title">Steampunk Adventure</a>
-</td>
-<td>
-<span class="listing-rating">1</span>
-</td>
-<td>
-<span class="listing-city">Frankfurt am Main</span>
-</td>
-<td>
-<span class="listing-country">Germany</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima</span>
-</td>
-<td>
-<span class="listing-completion-time">60 min</span>
-</td>
-<td>
-<span class="listing-clues">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="12" data-listing-date-sort="1727959500000" data-listing-file-modified-sort="1771771004580" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="56" data-listing-title-sort="Finlaysonin Sähkövalo" data-listing-filename-sort="getaway-room-finlayson-lights.qmd">
-<td>
-<span class="listing-date">Oct 3, 2024</span>
-</td>
-<td>
-<a href="./rooms/getaway-room-finlayson-lights.html" class="title listing-title">Finlaysonin Sähkövalo</a>
-</td>
-<td>
-<span class="listing-rating">5</span>
-</td>
-<td>
-<span class="listing-city">Tampere</span>
-</td>
-<td>
-<span class="listing-country">Finland</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima</span>
-</td>
-<td>
-<span class="listing-completion-time">60 min</span>
-</td>
-<td>
-<span class="listing-clues">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="13" data-listing-date-sort="1727012700000" data-listing-file-modified-sort="1771770913339" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="72" data-listing-title-sort="221B Baker Street" data-listing-filename-sort="the-room-221b-baker-street.qmd">
-<td>
-<span class="listing-date">Sep 22, 2024</span>
-</td>
-<td>
-<a href="./rooms/the-room-221b-baker-street.html" class="title listing-title">221B Baker Street</a>
-</td>
-<td>
-<span class="listing-rating">1</span>
-</td>
-<td>
-<span class="listing-city">Tallinn</span>
-</td>
-<td>
-<span class="listing-country">Estonia</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima, Heiko</span>
-</td>
-<td>
-<span class="listing-completion-time">&nbsp;</span>
-</td>
-<td>
-<span class="listing-clues">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="14" data-listing-date-sort="1726304400000" data-listing-file-modified-sort="1771771009250" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="50" data-listing-title-sort="Marien Muotokuvat" data-listing-filename-sort="elamysteeri-marien-muotokuvat.qmd">
-<td>
-<span class="listing-date">Sep 14, 2024</span>
-</td>
-<td>
-<a href="./rooms/elamysteeri-marien-muotokuvat.html" class="title listing-title">Marien Muotokuvat</a>
-</td>
-<td>
-<span class="listing-rating">5</span>
-</td>
-<td>
-<span class="listing-city">Tampere</span>
-</td>
-<td>
-<span class="listing-country">Finland</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima</span>
-</td>
-<td>
-<span class="listing-completion-time">75 min</span>
-</td>
-<td>
-<span class="listing-clues">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="15" data-listing-date-sort="1716729300000" data-listing-file-modified-sort="1771770968539" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="52" data-listing-title-sort="Indiana Jones and the Lost Temple" data-listing-filename-sort="ingame-indiana-jones.qmd">
-<td>
-<span class="listing-date">May 26, 2024</span>
-</td>
-<td>
-<a href="./rooms/ingame-indiana-jones.html" class="title listing-title">Indiana Jones and the Lost Temple</a>
-</td>
-<td>
-<span class="listing-rating">1</span>
-</td>
-<td>
-<span class="listing-city">Tallinn</span>
-</td>
-<td>
-<span class="listing-country">Estonia</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima, Heiko</span>
-</td>
-<td>
-<span class="listing-completion-time">&nbsp;</span>
-</td>
-<td>
-<span class="listing-clues">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="16" data-listing-date-sort="1716481800000" data-listing-file-modified-sort="1771770985805" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="40" data-listing-title-sort="Smugglers" data-listing-filename-sort="getaway-room-smugglers.qmd">
-<td>
-<span class="listing-date">May 23, 2024</span>
-</td>
-<td>
-<a href="./rooms/getaway-room-smugglers.html" class="title listing-title">Smugglers</a>
-</td>
-<td>
-<span class="listing-rating">4</span>
-</td>
-<td>
-<span class="listing-city">Tampere</span>
-</td>
-<td>
-<span class="listing-country">Finland</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima</span>
-</td>
-<td>
-<span class="listing-completion-time">63 min</span>
-</td>
-<td>
-<span class="listing-clues">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="17" data-listing-date-sort="1684576800000" data-listing-file-modified-sort="1771770925383" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="46" data-listing-title-sort="Prison Break" data-listing-filename-sort="the-escape-game-prison-break.qmd">
-<td>
-<span class="listing-date">May 20, 2023</span>
-</td>
-<td>
-<a href="./rooms/the-escape-game-prison-break.html" class="title listing-title">Prison Break</a>
-</td>
-<td>
-<span class="listing-rating">3</span>
-</td>
-<td>
-<span class="listing-city">Minneapolis, MN</span>
-</td>
-<td>
-<span class="listing-country">USA</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima, Unknown X</span>
-</td>
-<td>
-<span class="listing-completion-time">&nbsp;</span>
-</td>
-<td>
-<span class="listing-clues">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="18" data-listing-date-sort="1684570800000" data-listing-file-modified-sort="1771770930771" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="45" data-listing-title-sort="The Heist" data-listing-filename-sort="the-escape-game-heist.qmd">
-<td>
-<span class="listing-date">May 20, 2023</span>
-</td>
-<td>
-<a href="./rooms/the-escape-game-heist.html" class="title listing-title">The Heist</a>
-</td>
-<td>
-<span class="listing-rating">4</span>
-</td>
-<td>
-<span class="listing-city">Minneapolis, MN</span>
-</td>
-<td>
-<span class="listing-country">USA</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima</span>
-</td>
-<td>
-<span class="listing-completion-time">&nbsp;</span>
-</td>
-<td>
-<span class="listing-clues">&nbsp;</span>
-</td>
-
-</tr>
-
-<tr data-index="19" data-listing-date-sort="1682833200000" data-listing-file-modified-sort="1771770919156" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="43" data-listing-title-sort="Mission: Mars" data-listing-filename-sort="the-escape-game-mission-mars.qmd">
-<td>
-<span class="listing-date">Apr 30, 2023</span>
-</td>
-<td>
-<a href="./rooms/the-escape-game-mission-mars.html" class="title listing-title">Mission: Mars</a>
-</td>
-<td>
-<span class="listing-rating">2</span>
-</td>
-<td>
-<span class="listing-city">Minneapolis, MN</span>
-</td>
-<td>
-<span class="listing-country">USA</span>
-</td>
-<td>
-<span class="listing-players">Hanno, Fatima, Unknown 1, Unknown 2</span>
-</td>
-<td>
-<span class="listing-completion-time">&nbsp;</span>
-</td>
-<td>
-<span class="listing-clues">&nbsp;</span>
-</td>
-
-</tr>
-
 </tbody>
 </table>
-<div class="listing-no-matching d-none">No matching items</div>
+<div class="listing-no-matching d-none html-fill-item html-fill-container">No matching items</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
 </div>
 
 
-
-</section>
-
-</main> <!-- /main -->
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ilxudmlld29mIHllYXJfZmlsdGVyID0gSW5wdXRzLmZvcm0oe1xuICBiZWc6IElucHV0cy5udW1iZXIoWzIwMjMsIEluZmluaXR5XSwge3N0ZXA6IDEsIGxhYmVsOiAnRnJvbScsIHBsYWNlaG9sZGVyOiBuZXcgRGF0ZSgpLmdldEZ1bGxZZWFyKCksIHZhbHVlOiBuZXcgRGF0ZSgpLmdldEZ1bGxZZWFyKCl9KSwgXG4gIGVuZDogSW5wdXRzLm51bWJlcihbMjAyMywgSW5maW5pdHldLCB7c3RlcDogMSwgbGFiZWw6ICd0bycsIHBsYWNlaG9sZGVyOiBuZXcgRGF0ZSgpLmdldEZ1bGxZZWFyKCksIHZhbHVlOiBuZXcgRGF0ZSgpLmdldEZ1bGxZZWFyKCl9KSwgXG59LCBcbntcbiAgdGVtcGxhdGU6IChpbnB1dHMpID0+IGh0bC5odG1sYDxkaXYgY2xhc3M9XCJyb3cganVzdGlmeS1jb250ZW50LWJldHdlZW4gbm8tZ3V0dGVyc1wiPlxuICAgIDxkaXYgY2xhc3M9XCJjb2xcIj4ke2lucHV0cy5iZWd9PC9kaXY+XG4gICAgPGRpdiBjbGFzcz1cImNvbFwiPiR7aW5wdXRzLmVuZH08L2Rpdj5cbiAgICA8L2Rpdj5gXG59KTsgXG5cbnZpZXdvZiBieV92YXJpYWJsZSA9IElucHV0cy5zZWxlY3QobmV3IE1hcChbWydDb3VudHJ5JywgJ2NvdW50cnknXSwgWydSYXRpbmcnLCAncmF0aW5nJ10sIFsnWWVhcicsICd5ZWFyJ10sIFsnQ29tcGFueScsICdjb21wYW55J10sIFsnQ29tcGxldGlvbiB0aW1lJywgJ3RpbWVfbWluJ11dKSwge3ZhbHVlOiAnY291bnRyeScsIGxhYmVsOiAnQnknfSk7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcbi8vIFBhcnNlIGRhdGUgY29sdW1uXG5yb3dzID0gdHJhbnNwb3NlKGRhdGEpLm1hcChkID0+ICh7XG4gIC4uLmQsXG4gIC8vIElmIGFscmVhZHkgYSBEYXRlLCBrZWVwIGl0OyBpZiBzdHJpbmcvbnVtYmVyLCBjb252ZXJ0IG9uY2UuXG4gIGRhdGU6IGQuZGF0ZSBpbnN0YW5jZW9mIERhdGUgPyBkLmRhdGUgOiBuZXcgRGF0ZShkLmRhdGUpXG59KSlcblxuZmlsdGVyZWQgPSByb3dzLmZpbHRlcihkID0+XG4gIHllYXJfZmlsdGVyLmJlZyA8PSBkLmRhdGUuZ2V0VVRDRnVsbFllYXIoKSAmJiBkLmRhdGUuZ2V0VVRDRnVsbFllYXIoKSA8PSB5ZWFyX2ZpbHRlci5lbmRcbilcblxud2lkdGggPSAnMTAwJSc7IFxuaGVpZ2h0ID0gJzUwMHB4JzsgXG5cbmdyb3VwcyA9IEFycmF5LmZyb20obmV3IFNldChmaWx0ZXJlZC5tYXAoZCA9PiBkPy5bYnlfdmFyaWFibGVdKSkpLnNvcnQoKVxuY29sb3JzID0gZDMuc2NhbGVPcmRpbmFsKGQzLnNjaGVtZVRhYmxlYXUxMCkuZG9tYWluKGdyb3Vwcylcblxucm9vbU1hcCA9IHtcbiAgLy8gWW91J2xsIG9mdGVuIHNlZSBMZWFmbGV0IGV4YW1wbGVzIGluaXRpYWxpemluZyBhIG1hcCBsaWtlIEwubWFwKCdtYXAnKSxcbiAgLy8gd2hpY2ggdGVsbHMgdGhlIGxpYnJhcnkgdG8gbG9vayBmb3IgYSBkaXYgd2l0aCB0aGUgaWQgJ21hcCcgb24gdGhlIHBhZ2UuXG4gIC8vIEluIE9ic2VydmFibGUsIHdlIGluc3RlYWQgY3JlYXRlIGEgZGl2IGZyb20gc2NyYXRjaCBpbiB0aGlzIGNlbGwsIHNvIGl0J3NcbiAgLy8gY29tcGxldGVseSBzZWxmLWNvbnRhaW5lZC5cbiAgbGV0IGNvbnRhaW5lciA9IERPTS5lbGVtZW50KCdkaXYnLCB7IHN0eWxlOiBgd2lkdGg6JHt3aWR0aH07aGVpZ2h0OiR7aGVpZ2h0fWAgfSk7XG4gIFxuICAvLyBOb3RlIHRoYXQgSSdtIHlpZWxkaW5nIHRoZSBjb250YWluZXIgcHJldHR5IGVhcmx5IGhlcmU6IHRoaXMgYWxsb3dzIHRoZVxuICAvLyBkaXYgdG8gYmUgcGxhY2VkIG9uIHRoZSBwYWdlLiBUaGlzIGlzIGltcG9ydGFudCwgYmVjYXVzZSBMZWFmbGV0IHVzZXNcbiAgLy8gdGhlIGRpdidzIC5vZmZzZXRXaWR0aCBhbmQgLm9mZnNldEhlaWdodCB0byBzaXplIHRoZSBtYXAuIElmIEkgd2VyZVxuICAvLyB0byBvbmx5IHJldHVybiB0aGUgY29udGFpbmVyIGF0IHRoZSBlbmQgb2YgdGhpcyBtZXRob2QsIExlYWZsZXQgbWlnaHRcbiAgLy8gZ2V0IHRoZSB3cm9uZyBpZGVhIGFib3V0IHRoZSBtYXAncyBzaXplLlxuICB5aWVsZCBjb250YWluZXI7XG4gIFxuICAvLyBOb3cgd2UgY3JlYXRlIGEgbWFwIG9iamVjdCBhbmQgYWRkIGEgbGF5ZXIgdG8gaXQuXG4gIGxldCBtYXAgPSBMLm1hcChjb250YWluZXIpO1xuICBsZXQgb3NtTGF5ZXIgPSBMLnRpbGVMYXllcignaHR0cHM6Ly97c30uYmFzZW1hcHMuY2FydG9jZG4uY29tL2xpZ2h0X2FsbC97en0ve3h9L3t5fUAyeC5wbmcnLCB7XG4gICAgICBhdHRyaWJ1dGlvbjogJyZjb3B5OyA8YSBocmVmPVwiaHR0cDovL29zbS5vcmcvY29weXJpZ2h0XCI+T3BlblN0cmVldE1hcDwvYT4gY29udHJpYnV0b3JzJ1xuICB9KS5hZGRUbyhtYXApO1xuICBcbiAgdmFyIHJvb21zID0gTC5mZWF0dXJlR3JvdXAoKTsgXG4gIGZvciAodmFyIGkgPSAwOyBpIDwgZmlsdGVyZWQubGVuZ3RoOyBpKyspIHtcbiAgICB2YXIgYyA9IGNvbG9ycyhmaWx0ZXJlZFtpXT8uW2J5X3ZhcmlhYmxlXSk7XG4gICAgbGV0IHJvb20gPSBMLmNpcmNsZU1hcmtlcihbZmlsdGVyZWRbaV0ubGF0LCBmaWx0ZXJlZFtpXS5sb25nXSwge2NvbG9yOiBjLCBmaWxsQ29sb3I6Y30pOyBcbiAgICByb29tLmJpbmRQb3B1cChmaWx0ZXJlZFtpXS5saW5rZWRfbmFtZSk7IFxuICAgIHJvb21zLmFkZExheWVyKHJvb20pO1xuICB9XG4gIFxuICBtYXAuYWRkTGF5ZXIocm9vbXMpOyBcbiAgbWFwLmZpdEJvdW5kcyhyb29tcy5nZXRCb3VuZHMoKSwge21heFpvb206IDd9KTtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuaHRtbGA8cCBzdHlsZT1cImZvbnQtc2l6ZTogMS41cmVtOyB0ZXh0LWFsaWduOiBjZW50ZXI7IG1hcmdpbjogMDsgY29sb3I6ICMwMDcyQjI7XCI+TnVtYmVyIG9mIHJvb21zPC9wPmBcbmh0bWxgPHAgc3R5bGU9XCJmb250LXNpemU6IDIuNXJlbTsgdGV4dC1hbGlnbjogY2VudGVyOyBmb250LXdlaWdodDogYm9sZDsgY29sb3I6ICNFNjlGMDA7IG1hcmdpbjogMDtcIj4ke2ZpbHRlcmVkLmxlbmd0aH08L3A+YFxuXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcbmh0bWxgPHAgc3R5bGU9XCJmb250LXNpemU6IDEuMjVyZW07IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luOiAwOyBjb2xvcjogIzAwNzJCMjtcIj5BdmVyYWdlIHRpbWU8L3A+YFxuaHRtbGA8cCBzdHlsZT1cImZvbnQtc2l6ZTogMi4yNXJlbTsgdGV4dC1hbGlnbjogY2VudGVyOyBmb250LXdlaWdodDogYm9sZDsgY29sb3I6ICNFNjlGMDA7IG1hcmdpbjogMDtcIj4ke2QzLm1lYW4oZmlsdGVyZWQsIGQgPT4gZC50aW1lX21pbik/LnRvRml4ZWQoMSl9IG1pbjwvcD5gXG5cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Imh0bWxgPHAgc3R5bGU9XCJmb250LXNpemU6IDEuMjVyZW07IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luOiAwOyBjb2xvcjogIzAwNzJCMjtcIj5CZXN0IHRpbWU8L3A+YFxuaHRtbGA8cCBzdHlsZT1cImZvbnQtc2l6ZTogMi4yNXJlbTsgdGV4dC1hbGlnbjogY2VudGVyOyBmb250LXdlaWdodDogYm9sZDsgY29sb3I6ICNFNjlGMDA7IG1hcmdpbjogMDtcIj4ke2QzLm1pbihmaWx0ZXJlZCwgZCA9PiBkLnRpbWVfbWluKT8udG9GaXhlZCgxKX0gbWluPC9wPmBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Imh0bWxgPHAgc3R5bGU9XCJmb250LXNpemU6IDEuMjVyZW07IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luOiAwOyBjb2xvcjogIzAwNzJCMjtcIj5BdmVyYWdlIG51bWJlciBvZiBoaW50czwvcD5gXG5odG1sYDxwIHN0eWxlPVwiZm9udC1zaXplOiAyLjI1cmVtOyB0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtd2VpZ2h0OiBib2xkOyBjb2xvcjogI0U2OUYwMDsgbWFyZ2luOiAwO1wiPiR7ZDMubWVhbihmaWx0ZXJlZCwgZCA9PiBkLmNsdWVzKT8udG9GaXhlZCgxKX08L3A+YFxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC03IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiXG5QbG90LnJlY3RZKGZpbHRlcmVkLCBcbiAgUGxvdC5iaW5YKFxuICAgIHt5OiBcImNvdW50XCJ9LCBcbiAgICB7eDogXCJkYXRlXCIsIGZpbGw6IGJ5X3ZhcmlhYmxlLCB0aHJlc2hvbGRzOiAnYXV0byd9XG4gICkpXG4gIC5wbG90KHtcbiAgICBjb2xvcjoge2xlZ2VuZDogdHJ1ZX0sXG4gICAgbWFya3M6IFtcbiAgICAgIFBsb3QuZnJhbWUoKSxcbiAgICBdXG4gIH1cbilcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtOCIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlBsb3QubGluZVkoZmlsdGVyZWQsIFxuICAgIFBsb3QuYmluWChcbiAgICAgIHt5OiBcIm1lYW5cIiwgaW50ZXJ2YWw6IGQzLnRpbWVNb250aH0sIFxuICAgICAge3g6IFwiZGF0ZVwiLCB5OiBcImNsdWVzXCIsIHN0cm9rZVdpZHRoOiAzfVxuICAgIClcbiAgKVxuICAucGxvdCh7XG4gICAgY29sb3I6IHtsZWdlbmQ6IGZhbHNlfSxcbiAgICB5OiB7bGFiZWw6IFwiIyBvZiBoaW50c1wifSwgXG4gICAgbWFya3M6IFtcbiAgICAgIFBsb3QuZnJhbWUoKSxcbiAgICAgIFBsb3QuZG90KGZpbHRlcmVkLCBcbiAgICAgIHt4OiBcImRhdGVcIiwgeTogXCJjbHVlc1wiLCBjb2xvcjogYnlfdmFyaWFibGUsIGZpbGw6IGJ5X3ZhcmlhYmxlfVxuICAgIClcbiAgICBdXG4gIH1cbilcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtOSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlBsb3QubGluZVkoZmlsdGVyZWQsIFxuICAgIFBsb3QuYmluWChcbiAgICAgIHt5OiBcIm1lYW5cIiwgaW50ZXJ2YWw6IGQzLnRpbWVNb250aH0sIFxuICAgICAge3g6IFwiZGF0ZVwiLCB5OiBcInRpbWVfbWluXCIsIHN0cm9rZVdpZHRoOiAzfVxuICAgIClcbiAgKVxuICAucGxvdCh7XG4gICAgY29sb3I6IHtsZWdlbmQ6IGZhbHNlfSxcbiAgICB5OiB7bGFiZWw6IFwiQ29tcGxldGlvbiB0aW1lIChtaW4pXCJ9LCBcbiAgICBtYXJrczogW1xuICAgICAgUGxvdC5mcmFtZSgpLFxuICAgICAgUGxvdC5kb3QoZmlsdGVyZWQsIFxuICAgICAge3g6IFwiZGF0ZVwiLCB5OiBcInRpbWVfbWluXCIsIGNvbG9yOiBieV92YXJpYWJsZSwgZmlsbDogYnlfdmFyaWFibGV9XG4gICAgKVxuICAgIF1cbiAgfVxuKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCd5ZWFyX2ZpbHRlcicpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdieV92YXJpYWJsZScpIn1dfQ==
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ilxudmlld29mIHllYXJfZmlsdGVyID0gSW5wdXRzLmZvcm0oe1xuICBiZWc6IElucHV0cy5udW1iZXIoWzIwMjMsIEluZmluaXR5XSwge3N0ZXA6IDEsIGxhYmVsOiAnRnJvbScsIHBsYWNlaG9sZGVyOiBuZXcgRGF0ZSgpLmdldEZ1bGxZZWFyKCksIHZhbHVlOiBuZXcgRGF0ZSgpLmdldEZ1bGxZZWFyKCl9KSwgXG4gIGVuZDogSW5wdXRzLm51bWJlcihbMjAyMywgSW5maW5pdHldLCB7c3RlcDogMSwgbGFiZWw6ICd0bycsIHBsYWNlaG9sZGVyOiBuZXcgRGF0ZSgpLmdldEZ1bGxZZWFyKCksIHZhbHVlOiBuZXcgRGF0ZSgpLmdldEZ1bGxZZWFyKCl9KSwgXG59LCBcbntcbiAgdGVtcGxhdGU6IChpbnB1dHMpID0+IGh0bC5odG1sYDxkaXYgY2xhc3M9XCJyb3cganVzdGlmeS1jb250ZW50LWJldHdlZW4gbm8tZ3V0dGVyc1wiPlxuICAgIDxkaXYgY2xhc3M9XCJjb2xcIj4ke2lucHV0cy5iZWd9PC9kaXY+XG4gICAgPGRpdiBjbGFzcz1cImNvbFwiPiR7aW5wdXRzLmVuZH08L2Rpdj5cbiAgICA8L2Rpdj5gXG59KTsgXG5cbnZpZXdvZiBieV92YXJpYWJsZSA9IElucHV0cy5zZWxlY3QobmV3IE1hcChbWydDb3VudHJ5JywgJ2NvdW50cnknXSwgWydSYXRpbmcnLCAncmF0aW5nJ10sIFsnWWVhcicsICd5ZWFyJ10sIFsnQ29tcGFueScsICdjb21wYW55J10sIFsnQ29tcGxldGlvbiB0aW1lJywgJ3RpbWVfbWluJ11dKSwge3ZhbHVlOiAnY291bnRyeScsIGxhYmVsOiAnQnknfSk7XG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTIiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJcbi8vIFBhcnNlIGRhdGUgY29sdW1uXG5yb3dzID0gdHJhbnNwb3NlKGRhdGEpLm1hcChkID0+ICh7XG4gIC4uLmQsXG4gIC8vIElmIGFscmVhZHkgYSBEYXRlLCBrZWVwIGl0OyBpZiBzdHJpbmcvbnVtYmVyLCBjb252ZXJ0IG9uY2UuXG4gIGRhdGU6IGQuZGF0ZSBpbnN0YW5jZW9mIERhdGUgPyBkLmRhdGUgOiBuZXcgRGF0ZShkLmRhdGUpXG59KSlcblxuZmlsdGVyZWQgPSByb3dzLmZpbHRlcihkID0+XG4gIHllYXJfZmlsdGVyLmJlZyA8PSBkLmRhdGUuZ2V0VVRDRnVsbFllYXIoKSAmJiBkLmRhdGUuZ2V0VVRDRnVsbFllYXIoKSA8PSB5ZWFyX2ZpbHRlci5lbmRcbilcblxud2lkdGggPSAnMTAwJSc7IFxuaGVpZ2h0ID0gJzUwMHB4JzsgXG5cbmdyb3VwcyA9IEFycmF5LmZyb20obmV3IFNldChmaWx0ZXJlZC5tYXAoZCA9PiBkPy5bYnlfdmFyaWFibGVdKSkpLnNvcnQoKVxuY29sb3JzID0gZDMuc2NhbGVPcmRpbmFsKGQzLnNjaGVtZVRhYmxlYXUxMCkuZG9tYWluKGdyb3Vwcylcblxucm9vbU1hcCA9IHtcbiAgLy8gWW91J2xsIG9mdGVuIHNlZSBMZWFmbGV0IGV4YW1wbGVzIGluaXRpYWxpemluZyBhIG1hcCBsaWtlIEwubWFwKCdtYXAnKSxcbiAgLy8gd2hpY2ggdGVsbHMgdGhlIGxpYnJhcnkgdG8gbG9vayBmb3IgYSBkaXYgd2l0aCB0aGUgaWQgJ21hcCcgb24gdGhlIHBhZ2UuXG4gIC8vIEluIE9ic2VydmFibGUsIHdlIGluc3RlYWQgY3JlYXRlIGEgZGl2IGZyb20gc2NyYXRjaCBpbiB0aGlzIGNlbGwsIHNvIGl0J3NcbiAgLy8gY29tcGxldGVseSBzZWxmLWNvbnRhaW5lZC5cbiAgbGV0IGNvbnRhaW5lciA9IERPTS5lbGVtZW50KCdkaXYnLCB7IHN0eWxlOiBgd2lkdGg6JHt3aWR0aH07aGVpZ2h0OiR7aGVpZ2h0fWAgfSk7XG4gIFxuICAvLyBOb3RlIHRoYXQgSSdtIHlpZWxkaW5nIHRoZSBjb250YWluZXIgcHJldHR5IGVhcmx5IGhlcmU6IHRoaXMgYWxsb3dzIHRoZVxuICAvLyBkaXYgdG8gYmUgcGxhY2VkIG9uIHRoZSBwYWdlLiBUaGlzIGlzIGltcG9ydGFudCwgYmVjYXVzZSBMZWFmbGV0IHVzZXNcbiAgLy8gdGhlIGRpdidzIC5vZmZzZXRXaWR0aCBhbmQgLm9mZnNldEhlaWdodCB0byBzaXplIHRoZSBtYXAuIElmIEkgd2VyZVxuICAvLyB0byBvbmx5IHJldHVybiB0aGUgY29udGFpbmVyIGF0IHRoZSBlbmQgb2YgdGhpcyBtZXRob2QsIExlYWZsZXQgbWlnaHRcbiAgLy8gZ2V0IHRoZSB3cm9uZyBpZGVhIGFib3V0IHRoZSBtYXAncyBzaXplLlxuICB5aWVsZCBjb250YWluZXI7XG4gIFxuICAvLyBOb3cgd2UgY3JlYXRlIGEgbWFwIG9iamVjdCBhbmQgYWRkIGEgbGF5ZXIgdG8gaXQuXG4gIGxldCBtYXAgPSBMLm1hcChjb250YWluZXIpO1xuICBsZXQgb3NtTGF5ZXIgPSBMLnRpbGVMYXllcignaHR0cHM6Ly97c30uYmFzZW1hcHMuY2FydG9jZG4uY29tL2xpZ2h0X2FsbC97en0ve3h9L3t5fUAyeC5wbmcnLCB7XG4gICAgICBhdHRyaWJ1dGlvbjogJyZjb3B5OyA8YSBocmVmPVwiaHR0cDovL29zbS5vcmcvY29weXJpZ2h0XCI+T3BlblN0cmVldE1hcDwvYT4gY29udHJpYnV0b3JzJ1xuICB9KS5hZGRUbyhtYXApO1xuICBcbiAgdmFyIHJvb21zID0gTC5mZWF0dXJlR3JvdXAoKTsgXG4gIGZvciAodmFyIGkgPSAwOyBpIDwgZmlsdGVyZWQubGVuZ3RoOyBpKyspIHtcbiAgICB2YXIgYyA9IGNvbG9ycyhmaWx0ZXJlZFtpXT8uW2J5X3ZhcmlhYmxlXSk7XG4gICAgbGV0IHJvb20gPSBMLmNpcmNsZU1hcmtlcihbZmlsdGVyZWRbaV0ubGF0LCBmaWx0ZXJlZFtpXS5sb25nXSwge2NvbG9yOiBjLCBmaWxsQ29sb3I6Y30pOyBcbiAgICByb29tLmJpbmRQb3B1cChmaWx0ZXJlZFtpXS5saW5rZWRfbmFtZSk7IFxuICAgIHJvb21zLmFkZExheWVyKHJvb20pO1xuICB9XG4gIFxuICBtYXAuYWRkTGF5ZXIocm9vbXMpOyBcbiAgbWFwLmZpdEJvdW5kcyhyb29tcy5nZXRCb3VuZHMoKSwge21heFpvb206IDd9KTtcbn1cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuaHRtbGA8cCBzdHlsZT1cImZvbnQtc2l6ZTogMS41cmVtOyB0ZXh0LWFsaWduOiBjZW50ZXI7IG1hcmdpbjogMDsgY29sb3I6ICMwMDcyQjI7XCI+TnVtYmVyIG9mIHJvb21zPC9wPmBcbmh0bWxgPHAgc3R5bGU9XCJmb250LXNpemU6IDIuNXJlbTsgdGV4dC1hbGlnbjogY2VudGVyOyBmb250LXdlaWdodDogYm9sZDsgY29sb3I6ICNFNjlGMDA7IG1hcmdpbjogMDtcIj4ke2ZpbHRlcmVkLmxlbmd0aH08L3A+YFxuXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTQiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJodG1sYDxwIHN0eWxlPVwiZm9udC1zaXplOiAxLjI1cmVtOyB0ZXh0LWFsaWduOiBjZW50ZXI7IG1hcmdpbjogMDsgY29sb3I6ICMwMDcyQjI7XCI+QXZlcmFnZSBudW1iZXIgb2YgaGludHM8L3A+YFxuaHRtbGA8cCBzdHlsZT1cImZvbnQtc2l6ZTogMi4yNXJlbTsgdGV4dC1hbGlnbjogY2VudGVyOyBmb250LXdlaWdodDogYm9sZDsgY29sb3I6ICNFNjlGMDA7IG1hcmdpbjogMDtcIj4ke2QzLm1lYW4oZmlsdGVyZWQsIGQgPT4gZC5jbHVlcyk/LnRvRml4ZWQoMSl9PC9wPmBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuaHRtbGA8cCBzdHlsZT1cImZvbnQtc2l6ZTogMS4yNXJlbTsgdGV4dC1hbGlnbjogY2VudGVyOyBtYXJnaW46IDA7IGNvbG9yOiAjMDA3MkIyO1wiPkF2ZXJhZ2UgdGltZTwvcD5gXG5odG1sYDxwIHN0eWxlPVwiZm9udC1zaXplOiAyLjI1cmVtOyB0ZXh0LWFsaWduOiBjZW50ZXI7IGZvbnQtd2VpZ2h0OiBib2xkOyBjb2xvcjogI0U2OUYwMDsgbWFyZ2luOiAwO1wiPiR7ZDMubWVhbihmaWx0ZXJlZCwgZCA9PiBkLnRpbWVfbWluKT8udG9GaXhlZCgxKX0gbWluPC9wPmBcbmh0bWxgPHAgc3R5bGU9XCJmb250LXNpemU6IDEuMjVyZW07IHRleHQtYWxpZ246IGNlbnRlcjsgZm9udC13ZWlnaHQ6IGJvbGQ7IGNvbG9yOiAjRTY5RjAwOyBtYXJnaW46IDA7XCI+KCR7ZDMubWVhbihmaWx0ZXJlZCwgZCA9PiBkLnRpbWVfbGVmdCk/LnRvRml4ZWQoMSl9IG1pbiBpbiBhZHZhbmNlKTwvcD5gXG5cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Imh0bWxgPHAgc3R5bGU9XCJmb250LXNpemU6IDEuMjVyZW07IHRleHQtYWxpZ246IGNlbnRlcjsgbWFyZ2luOiAwOyBjb2xvcjogIzAwNzJCMjtcIj5CZXN0IHRpbWU8L3A+YFxuaHRtbGA8cCBzdHlsZT1cImZvbnQtc2l6ZTogMi4yNXJlbTsgdGV4dC1hbGlnbjogY2VudGVyOyBmb250LXdlaWdodDogYm9sZDsgY29sb3I6ICNFNjlGMDA7IG1hcmdpbjogMDtcIj4ke2QzLm1pbihmaWx0ZXJlZCwgZCA9PiBkLnRpbWVfbWluKT8udG9GaXhlZCgxKX0gbWluPC9wPmBcbmh0bWxgPHAgc3R5bGU9XCJmb250LXNpemU6IDEuMjVyZW07IHRleHQtYWxpZ246IGNlbnRlcjsgZm9udC13ZWlnaHQ6IGJvbGQ7IGNvbG9yOiAjRTY5RjAwOyBtYXJnaW46IDA7XCI+KCR7ZDMubWF4KGZpbHRlcmVkLCBkID0+IGQudGltZV9sZWZ0KT8udG9GaXhlZCgxKX0gbWluIGluIGFkdmFuY2UpPC9wPmBcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuUGxvdC5yZWN0WShmaWx0ZXJlZCwgXG4gIFBsb3QuYmluWChcbiAgICB7eTogXCJjb3VudFwifSwgXG4gICAge3g6IFwiZGF0ZVwiLCBmaWxsOiBieV92YXJpYWJsZSwgdGhyZXNob2xkczogJ2F1dG8nfVxuICApKVxuICAucGxvdCh7XG4gICAgY29sb3I6IHtsZWdlbmQ6IHRydWV9LFxuICAgIG1hcmtzOiBbXG4gICAgICBQbG90LmZyYW1lKCksXG4gICAgXVxuICB9XG4pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTgiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LmxpbmVZKGZpbHRlcmVkLCBcbiAgICBQbG90LmJpblgoXG4gICAgICB7eTogXCJtZWFuXCIsIGludGVydmFsOiBkMy50aW1lTW9udGh9LCBcbiAgICAgIHt4OiBcImRhdGVcIiwgeTogXCJjbHVlc1wiLCBzdHJva2VXaWR0aDogM31cbiAgICApXG4gIClcbiAgLnBsb3Qoe1xuICAgIGNvbG9yOiB7bGVnZW5kOiBmYWxzZX0sXG4gICAgeToge2xhYmVsOiBcIiMgb2YgaGludHNcIn0sIFxuICAgIG1hcmtzOiBbXG4gICAgICBQbG90LmZyYW1lKCksXG4gICAgICBQbG90LmRvdChmaWx0ZXJlZCwgXG4gICAgICB7eDogXCJkYXRlXCIsIHk6IFwiY2x1ZXNcIiwgY29sb3I6IGJ5X3ZhcmlhYmxlLCBmaWxsOiBieV92YXJpYWJsZX1cbiAgICApXG4gICAgXVxuICB9XG4pXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJjZWxsTmFtZSI6Im9qcy1jZWxsLTkiLCJpbmxpbmUiOmZhbHNlLCJzb3VyY2UiOiJQbG90LmxpbmVZKGZpbHRlcmVkLCBcbiAgICBQbG90LmJpblgoXG4gICAgICB7eTogXCJtZWFuXCIsIGludGVydmFsOiBkMy50aW1lTW9udGh9LCBcbiAgICAgIHt4OiBcImRhdGVcIiwgeTogXCJ0aW1lX21pblwiLCBzdHJva2VXaWR0aDogM31cbiAgICApXG4gIClcbiAgLnBsb3Qoe1xuICAgIGNvbG9yOiB7bGVnZW5kOiBmYWxzZX0sXG4gICAgeToge2xhYmVsOiBcIkNvbXBsZXRpb24gdGltZSAobWluKVwifSwgXG4gICAgbWFya3M6IFtcbiAgICAgIFBsb3QuZnJhbWUoKSxcbiAgICAgIFBsb3QuZG90KGZpbHRlcmVkLCBcbiAgICAgIHt4OiBcImRhdGVcIiwgeTogXCJ0aW1lX21pblwiLCBjb2xvcjogYnlfdmFyaWFibGUsIGZpbGw6IGJ5X3ZhcmlhYmxlfVxuICAgIClcbiAgICBdXG4gIH1cbilcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgneWVhcl9maWx0ZXInKSJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnYnlfdmFyaWFibGUnKSJ9XX0=
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
@@ -1541,6 +1035,14 @@ window._ojs.runtime.interpretFromScriptTags();
   </script>
 </div> <!-- /content -->
 
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (_event) {
+  if (window.bslib.Card) {
+    window.bslib.Card.initializeAllCards();
+  }
+}); 
+</script>
+  
 
 
 

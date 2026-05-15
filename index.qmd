@@ -50,7 +50,7 @@ room_list <- list.files('rooms', '.qmd',
 names(room_list) <- basename(str_remove_all(room_list, '.qmd'))
 
 room_yaml <- map(room_list, rmarkdown::yaml_front_matter)
-room_yaml <- map(room_yaml, ~.x[c('title', 'date', 'long', 'lat', 'company', 'country', 'completion-time', 'rating', 'clues')])
+room_yaml <- map(room_yaml, ~.x[c('title', 'date', 'long', 'lat', 'company', 'country', 'completion-time', 'rating', 'clues', 'total-time')])
 room_yaml <- lapply(room_yaml, function(room) {
   lapply(room, function(yaml) {
     if (is.null(yaml)) {
@@ -72,7 +72,14 @@ room_tbl <- room_tbl %>% mutate(date = format(dt, '%d %b %Y'),
                                 time_min = case_when(
                                   str_detect(`completion-time`, 'min') ~ time_min, 
                                   str_detect(`completion-time`, 'h|hour') ~ time_min * 60, 
-                                  .default = NA))
+                                  .default = NA), 
+                                time_total = duration(`total-time`), 
+                                time_total = as.numeric(time_total, units = 'minutes'), 
+                                time_total = case_when(
+                                  str_detect(`total-time`, 'min') ~ time_total, 
+                                  str_detect(`total-time`, 'h|hour') ~ time_total * 60, 
+                                  .default = NA), 
+                                time_left = time_total - time_min)
 
 room_tbl <- room_tbl %>% 
   mutate(linked_name = paste0("<b><a href='", path, 
@@ -166,10 +173,8 @@ html`<p style="font-size: 2.5rem; text-align: center; font-weight: bold; color: 
 
 ::: {.card .vh-25}
 ```{ojs}
-
-html`<p style="font-size: 1.25rem; text-align: center; margin: 0; color: #0072B2;">Average time</p>`
-html`<p style="font-size: 2.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${d3.mean(filtered, d => d.time_min)?.toFixed(1)} min</p>`
-
+html`<p style="font-size: 1.25rem; text-align: center; margin: 0; color: #0072B2;">Average number of hints</p>`
+html`<p style="font-size: 2.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${d3.mean(filtered, d => d.clues)?.toFixed(1)}</p>`
 ```
 :::
 
@@ -177,15 +182,19 @@ html`<p style="font-size: 2.25rem; text-align: center; font-weight: bold; color:
 
 ::: {.card .vh-25}
 ```{ojs}
-html`<p style="font-size: 1.25rem; text-align: center; margin: 0; color: #0072B2;">Best time</p>`
-html`<p style="font-size: 2.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${d3.min(filtered, d => d.time_min)?.toFixed(1)} min</p>`
+
+html`<p style="font-size: 1.25rem; text-align: center; margin: 0; color: #0072B2;">Average time</p>`
+html`<p style="font-size: 2.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${d3.mean(filtered, d => d.time_min)?.toFixed(1)} min</p>`
+html`<p style="font-size: 1.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">(${d3.mean(filtered, d => d.time_left)?.toFixed(1)} min in advance)</p>`
+
 ```
 :::
 
 ::: {.card .vh-25}
 ```{ojs}
-html`<p style="font-size: 1.25rem; text-align: center; margin: 0; color: #0072B2;">Average number of hints</p>`
-html`<p style="font-size: 2.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${d3.mean(filtered, d => d.clues)?.toFixed(1)}</p>`
+html`<p style="font-size: 1.25rem; text-align: center; margin: 0; color: #0072B2;">Best time</p>`
+html`<p style="font-size: 2.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">${d3.min(filtered, d => d.time_min)?.toFixed(1)} min</p>`
+html`<p style="font-size: 1.25rem; text-align: center; font-weight: bold; color: #E69F00; margin: 0;">(${d3.max(filtered, d => d.time_left)?.toFixed(1)} min in advance)</p>`
 ```
 :::
 
