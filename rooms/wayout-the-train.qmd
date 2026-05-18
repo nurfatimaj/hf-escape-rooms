@@ -1,0 +1,53 @@
+---
+title: The Train
+company: WayOut
+date: 16 May 2026 14:15
+city: Tampere
+country: Finland
+long: 23.7728018
+lat: 61.4980364
+completion-time: 50 min 28 sec 
+total-time: 60 min
+rating: 3
+clues: 4
+about:
+  template: broadside
+  links:
+  - icon: globe2
+    href: https://wayout.fi/en-gb/tampere/the-train
+players:
+  - Hanno
+  - Fatima
+
+cost: 74
+currency: EUR
+paid-by: Hanno 
+
+template-partials: title-block.html
+execute:
+  echo: false
+  warning: false
+  error: false
+---
+
+::: {.callout-important icon="false"}
+## Fatima's impressions
+
+- Lockless room!
+- Most puzzles were quite straightforward
+- One puzzle required quite a bit of precision and there was no special sound for resetting, so it was a little difficult to know if we are on track or not
+- Overall, even though the quality was quite ok, it still felt a little underwhelming.
+:::
+
+```{r}
+library(leaflet)
+
+meta <- tryCatch(rmarkdown::metadata, error = function(e) NULL)
+
+if (!is.null(meta) && !is.null(meta$long) && !is.null(meta$lat)) {
+  leaflet() %>% 
+    addTiles() %>% 
+    addProviderTiles('Esri.WorldGrayCanvas') %>% 
+    addMarkers(lng = meta$long, lat = meta$lat)
+}
+```
