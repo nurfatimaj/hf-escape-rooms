@@ -1,0 +1,53 @@
+---
+title: Viistokatu
+company: Getaway Room Escape
+date: 9 June 2026 19:15
+city: Tampere
+country: Finland
+long: 23.778763371966672
+lat: 61.49594371317772
+completion-time: 46 min 2 sec
+total-time: 60 min
+rating: 3.5
+clues: 1
+
+about: 
+  template: broadside
+  links: 
+    - icon: globe2
+      href: https://www.getaway.fi/tampere/pakohuoneet/akerlundinkatu#viistokatu
+
+players:
+  - Hanno
+  - Fatima
+  
+cost: 90
+currency: EUR
+paid-by: Hanno
+
+template-partials: 
+  - title-block.html
+
+execute: 
+  echo: false
+  warning: false
+  error: false
+---
+
+::: {.callout-important icon="false"}
+## Fatima's impressions
+
+- The going through experience was nice and straightforward, with only one puzzle where we got sort of stuck
+- The environment was very nice with a lot of references to Harry Potter and wizard school
+- Sadly, none of the puzzles were something that we'd want to remember or were felt nicely challenged by
+:::
+
+```{r}
+library(leaflet)
+
+leaflet() %>% 
+  addTiles() %>% 
+  addProviderTiles('Esri.WorldGrayCanvas') %>% 
+  addMarkers(lng = rmarkdown::metadata$long, 
+             lat = rmarkdown::metadata$lat)
+```
